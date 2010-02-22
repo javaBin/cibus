@@ -1,0 +1,6 @@
+Du mottar denne eposten fordi en bruker med brukernavn {0} har blitt registrert på java.no med epostadressen {1}. For å verifisere dette må du klikke på lenken nedenfor innen en halvtime etter registreringen. Etter det vil brukeren bli glemt.
+
+Vennlig hilsen 
+portalgruppen på javaBin - portal@java.no
+--
+Verifiserings-URL {3}/brukerkonto/verifiser?userkey={2}

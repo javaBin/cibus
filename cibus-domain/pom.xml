@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>no.java.cibus</groupId>
+    <artifactId>cibus</artifactId>
+    <version>1.0-alpha-1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>cibus-domain</artifactId>
+  <name>Cibus :: Domain</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.functionaljava</groupId>
+      <artifactId>fj</artifactId>
+      <version>2.16</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>1.5.2</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.4</version>
+    </dependency>
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>1.5.2</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.3</version>
+    </dependency>
+  </dependencies>
+
+</project>

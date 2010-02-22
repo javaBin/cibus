@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+  <display-name>javaBin twitter tag lib</display-name>
+  <tlib-version>1.0</tlib-version>
+  <short-name>twitter</short-name>
+  <uri>http://tags.java.no/twitter</uri>
+
+  <tag>
+    <name>search</name>
+    <tag-class>no.java.portal.servlet.twitter.SearchTwitterTag</tag-class>
+    <body-content>empty</body-content>
+    <variable>
+      <name-from-attribute>var</name-from-attribute>
+      <variable-class>java.util.List</variable-class>
+      <scope>AT_END</scope>
+    </variable>
+    <attribute>
+      <name>term</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>var</name>
+      <required>true</required>
+    </attribute>
+  </tag>
+
+</taglib>

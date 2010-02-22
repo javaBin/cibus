@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:decorator="http://www.opensymphony.com/sitemesh/decorator"
+      xmlns:page="http://www.opensymphony.com/sitemesh/page"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:portal="http://tags.java.no/portal"
+      xmlns:parts="urn:jsptagdir:/WEB-INF/tags"
+      xmlns:jsp="http://java.sun.com/JSP/Page">
+
+<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8"/>
+<jsp:useBean id="frontJspBean" type="no.java.portal.page.FrontJspBean" scope="application"/>
+<portal:getNewsItem articleId='${requestScope["articleId"]}' var="article"/>
+
+<body>
+<div id="frontPage_news">
+  <div class="wrapper">
+    <div class="leftarea">
+      <h2>${article.title}</h2>
+
+      <p class="author">
+        ${portal:toLongString(article.metadata.created)}<br/> Skrevet av <a>${article.author}</a><br/>
+      </p>
+
+      <div class="newsbody">
+        <p>${article.ingress}</p>
+        <p>${article.text}</p>
+
+        <div class="furtherreading">
+          <c:if test="${article.source != null}">
+            <a href="${article.seeAlso}" title="Vis kilde" class="lesmer standalone" target="_blank">
+              <c:choose>
+                <c:when test="${empty article.source}">Kilde</c:when>
+                <c:otherwise>${article.source}</c:otherwise>
+              </c:choose>
+            </a>
+          </c:if>
+          <c:forEach var="url" items="${article.otherUrls}">
+            <a href="${url}" class="lesmer standalone" target="_blank">${url}</a>
+          </c:forEach>          
+          <a title="Diskuter" href="http://java.no/forum/forums/list.page" class="lesmer standalone">Diskuter på forumet</a>
+        </div>
+      </div>
+    </div>
+    <div class="announcements">
+      <parts:tipsLenke />
+	  <parts:sokeFelt />
+      <parts:goldPartnerList />
+    </div>
+  </div>
+</div>
+</body>
+</html>

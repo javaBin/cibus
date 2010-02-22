@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+    <display-name>javaBin utility tag lib</display-name>
+    <tlib-version>1.0</tlib-version>
+    <short-name>portal</short-name>
+    <uri>http://tags.java.no/portal</uri>
+
+    <tag>
+        <name>persistTemporaryUser</name>
+        <tag-class>no.java.portal.servlet.TemporaryUsersTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>userkey</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>getMeetings</name>
+        <tag-class>no.java.portal.servlet.MeetingsTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>year</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>category</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>getFeedItems</name>
+        <tag-class>no.java.portal.servlet.FeedTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>feedBean</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>count</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>getArticleIds</name>
+        <tag-class>no.java.portal.servlet.ArticleIdsTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+        </attribute>
+        <attribute>
+            <name>category</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>offset</name>
+        </attribute>
+        <attribute>
+            <name>length</name>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>getStaticPage</name>
+        <tag-class>no.java.portal.servlet.StaticPageTag</tag-class>
+        <body-content>empty</body-content>
+        <variable>
+            <name-from-attribute>var</name-from-attribute>
+            <variable-class>no.java.portal.domain.StaticPage</variable-class>
+            <scope>AT_END</scope>
+        </variable>
+        <attribute>
+            <name>articleId</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>getNewsItem</name>
+        <tag-class>no.java.portal.servlet.NewsItemTag</tag-class>
+        <body-content>empty</body-content>
+        <variable>
+            <name-from-attribute>var</name-from-attribute>
+            <variable-class>no.java.portal.domain.NewsItem</variable-class>
+            <scope>AT_END</scope>
+        </variable>
+        <attribute>
+            <name>articleId</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>getUpcomingMeeting</name>
+        <tag-class>no.java.portal.servlet.MeetingTag</tag-class>
+        <body-content>empty</body-content>
+        <variable>
+            <name-from-attribute>var</name-from-attribute>
+            <variable-class>no.java.portal.domain.Meeting</variable-class>
+            <scope>AT_END</scope>
+        </variable>
+        <attribute>
+            <name>articleId</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>getHero</name>
+        <tag-class>no.java.portal.servlet.HeroTag</tag-class>
+        <body-content>empty</body-content>
+        <variable>
+            <name-from-attribute>var</name-from-attribute>
+            <variable-class>no.java.portal.domain.Hero</variable-class>
+            <scope>AT_END</scope>
+        </variable>
+        <attribute>
+            <name>articleId</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>getNewsFromMonth</name>
+        <tag-class>no.java.portal.servlet.NewsFromMonthTag</tag-class>
+        <body-content>empty</body-content>
+        <variable>
+            <name-from-attribute>var</name-from-attribute>
+            <variable-class>java.util.List</variable-class>
+            <scope>AT_END</scope>
+        </variable>
+        <attribute>
+            <name>year</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>category</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>month</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+        </attribute>
+    </tag>
+
+    <function>
+        <name>toShortString</name>
+        <function-class>no.java.portal.domain.JodaTimeFunctions</function-class>
+        <function-signature>java.lang.String toShortString(org.joda.time.LocalDateTime)</function-signature>
+    </function>
+
+    <function>
+        <name>toLongString</name>
+        <function-class>no.java.portal.domain.JodaTimeFunctions</function-class>
+        <function-signature>java.lang.String toLongString(org.joda.time.LocalDateTime)</function-signature>
+    </function>
+
+</taglib>

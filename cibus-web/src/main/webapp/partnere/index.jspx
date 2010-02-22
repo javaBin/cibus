@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:decorator="http://www.opensymphony.com/sitemesh/decorator"
+      xmlns:page="http://www.opensymphony.com/sitemesh/page"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:portal="http://tags.java.no/portal"
+      xmlns:parts="urn:jsptagdir:/WEB-INF/tags"
+      xmlns:jsp="http://java.sun.com/JSP/Page">
+<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8"/>
+<jsp:useBean id="frontJspBean" type="no.java.portal.page.FrontJspBean" scope="application"/>
+
+<head><title>javaBin - Partnere</title></head>
+<body>
+<div id="frontPage_news">
+    <div class="wrapper">
+      <div class="leftarea">
+        <div class="widecolumn">
+          <c:forEach var="article" items="${frontJspBean.headPartnerArticles}">
+            <parts:news article="${article}" />
+          </c:forEach>
+        </div>
+
+        <table cellpadding="0" cellspacing="0" border="0" class="linkList" width="100%">
+          <tr>
+            <parts:partnerLogo company="Accenture" partnerLink="http://www.accenture.no/" imageSource="${pageContext.request.contextPath}/image.do?id=13633" />
+            <parts:partnerLogo company="Exie" partnerLink="http://www.exie.no" imageSource="${pageContext.request.contextPath}/image.do?id=13711" />
+            <parts:partnerLogo company="InTeliNet" partnerLink="http://www.intelinet.no" imageSource="${pageContext.request.contextPath}/image.do?id=15486" height="45"/>             
+          </tr>
+          <tr>
+            <parts:partnerLogo company="Software innovation" partnerLink="http://www.software-innovation.no/" imageSource="${pageContext.request.contextPath}/image.do?id=13877" />
+            <parts:partnerLogo company="Programutvikling" partnerLink="http://www.programutvikling.no/" imageSource="${pageContext.request.contextPath}/image.do?id=13769" />
+            <parts:partnerLogo company="Objectware" partnerLink="http://www.objectware.no" imageSource="${pageContext.request.contextPath}/image.do?id=13753" />
+          </tr>
+          <tr>
+            <parts:partnerLogo company="Escenic" partnerLink="http://www.escenic.no" imageSource="${pageContext.request.contextPath}/image.do?id=13705" />
+            <parts:partnerLogo company="Enonic" partnerLink="http://www.enonic.no/" imageSource="${pageContext.request.contextPath}/image.do?id=13699"></parts:partnerLogo>
+            <parts:partnerLogo company="mBricks" partnerLink="http://www.mbricks.no/" imageSource="${pageContext.request.contextPath}/image.do?id=13645" />
+          </tr>
+          <tr>
+            <parts:partnerLogo company="Kantega" partnerLink="http://www.kantega.no" imageSource="${pageContext.request.contextPath}/image.do?id=13621" />
+            <parts:partnerLogo company="Conax" partnerLink="http://www.conax.no" imageSource="${pageContext.request.contextPath}/image.do?id=13693" />
+            <parts:partnerLogo company="Webstep" partnerLink="http://www.webstep.no" imageSource="${pageContext.request.contextPath}/image.do?id=13795" />
+          </tr>
+          <tr>
+            <parts:partnerLogo company="Capgemini" partnerLink="http://www.no.capgemini.com/" imageSource="${pageContext.request.contextPath}/image.do?id=13651" />
+            <parts:partnerLogo company="Systek" partnerLink="http://www.systek.no" imageSource="${pageContext.request.contextPath}/image.do?id=13777" />
+            <parts:partnerLogo company="BBS" partnerLink="http://www.bbs.no" imageSource="${pageContext.request.contextPath}/image.do?id=14024" height="65" />
+          </tr>
+          <tr>
+            <parts:partnerLogo company="UDP" partnerLink="http://www.udp.no/" imageSource="${pageContext.request.contextPath}/image.do?id=13815" />
+            <parts:partnerLogo company="Net Professionals" partnerLink="http://www.net-pro.no" imageSource="${pageContext.request.contextPath}/image.do?id=13747" />
+            <parts:partnerLogo company="Steria" partnerLink="http://www.steria.no" imageSource="${pageContext.request.contextPath}/image.do?id=13770" />
+          </tr>
+          <tr>
+            <parts:partnerLogo company="Sun" partnerLink="http://no.sun.com/" imageSource="${pageContext.request.contextPath}/image.do?id=13853" />
+            <parts:partnerLogo company="EDB" partnerLink="http://www.edb.com" imageSource="${pageContext.request.contextPath}/image.do?id=13855" />
+            <parts:partnerLogo company="Acando" partnerLink="http://acando.no/" imageSource="${pageContext.request.contextPath}/image.do?id=14056" />
+          </tr>
+          <tr>
+            <parts:partnerLogo company="Integrate" partnerLink="http://www.integrate.no/" imageSource="${pageContext.request.contextPath}/image.do?id=13723" />
+            <parts:partnerLogo company="Mesan" partnerLink="http://www.mesan.no" imageSource="${pageContext.request.contextPath}/image.do?id=13745" />
+            <parts:partnerLogo company="Conceptos" partnerLink="http://www.conceptos.no/" imageSource="${pageContext.request.contextPath}/image.do?id=14090" />
+          </tr>
+          <tr>
+            <parts:partnerLogo company="Computas" partnerLink="http://www.computas.no" imageSource="${pageContext.request.contextPath}/image.do?id=13687" />
+            <parts:partnerLogo company="Conduct" partnerLink="http://www.conduct.no/" imageSource="${pageContext.request.contextPath}/image.do?id=13889" />
+            <parts:partnerLogo company="Programutvikling" partnerLink="http://www.put.no" imageSource="${pageContext.request.contextPath}/image.do?id=11610" height="83"/>
+          </tr>
+          <tr>
+            <parts:partnerLogo company="Miles" partnerLink="http://miles.no" imageSource="${pageContext.request.contextPath}/image.do?id=13821" />
+            <parts:partnerLogo company="Oracle Norge" partnerLink="http://www.oracle.no" imageSource="${pageContext.request.contextPath}/image.do?id=13921" />
+            <parts:partnerLogo company="WesternGeco" partnerLink="http://www.westerngeco.com/" imageSource="${pageContext.request.contextPath}/image.do?id=14044" />
+          </tr>
+          <tr>
+            <parts:partnerLogo company="Bouvet" partnerLink="http://www.bouvet.no" imageSource="${pageContext.request.contextPath}/image.do?id=13674" />
+            <parts:partnerLogo company="Exense" partnerLink="http://www.exenseconsulting.com/" imageSource="${pageContext.request.contextPath}/image.do?id=13854" />
+            <parts:partnerLogo company="ya" partnerLink="http://www.ya.no/" imageSource="${pageContext.request.contextPath}/image.do?id=11571" height="111" />
+          </tr>
+          <tr>
+            <parts:partnerLogo company="Know IT" partnerLink="http://www.objectnet.no" imageSource="${pageContext.request.contextPath}/image.do?id=13837" />
+            <parts:partnerLogo company="ErgoGroup" partnerLink="http://ergogroup.no" imageSource="${pageContext.request.contextPath}/image.do?id=13801" />
+            <parts:partnerLogo company="Ciber" partnerLink="http://www.ciber.no" imageSource="${pageContext.request.contextPath}/image.do?id=13681" />
+          </tr>
+          <tr>
+            <parts:partnerLogo company="IBM" partnerLink="http://www.ibm.no" imageSource="${pageContext.request.contextPath}/image.do?id=13871" />
+            <parts:partnerLogo company="Hewlett Packard" partnerLink="http://www.hp.com/" imageSource="${pageContext.request.contextPath}/image.do?id=13910" />
+            <parts:partnerLogo company="Tarantell" partnerLink="http://www.tarantell.no/" imageSource="${pageContext.request.contextPath}/image.do?id=14062" />
+          </tr>
+          <tr>
+            <parts:partnerLogo company="Tandberg" partnerLink="http://www.tandberg.com" imageSource="${pageContext.request.contextPath}/image.do?id=13783" />
+            <parts:partnerLogo company="Linpro" partnerLink="http://linpro.no" imageSource="${pageContext.request.contextPath}/image.do?id=13746" />
+            <parts:partnerLogo company="Decisive" partnerLink="http://decisive.no" imageSource="${pageContext.request.contextPath}/image.do?id=14003" height="53" />
+          </tr>
+          <tr>
+            <parts:partnerLogo company="TietoEnator" partnerLink="http://www.tietoenator.no/" imageSource="${pageContext.request.contextPath}/image.do?id=14050" />
+            <parts:partnerLogo company="Bekk" partnerLink="http://www.bekk.no" imageSource="${pageContext.request.contextPath}/image.do?id=13675" />
+            <parts:partnerLogo company="Norgesgruppen" partnerLink="http://www.norgesgruppen.no/" imageSource="${pageContext.request.contextPath}/image.do?id=13883" />
+          </tr>
+          <tr>
+            <parts:partnerLogo company="jPro" partnerLink="http://www.jpro.no" imageSource="${pageContext.request.contextPath}/image.do?id=13722" />
+            <parts:partnerLogo company="Avenir" partnerLink="http://www.avenir.no" imageSource="${pageContext.request.contextPath}/image.do?id=13657" />
+            <parts:partnerLogo company="Sirius IT" partnerLink="http://www.siriusit.no" imageSource="${pageContext.request.contextPath}/image.do?id=13771" />
+          </tr>
+        </table>
+
+    <div class="widecolumn">
+      <c:forEach var="article" items="${frontJspBean.partnerArticles}">
+        <parts:news article="${article}" />
+      </c:forEach>
+    </div>
+  </div>
+
+  <!-- module "Oppramsing av artikler" end -->
+
+  <div class="announcements">
+    <parts:tipsLenke />
+	<parts:sokeFelt />
+    <parts:goldPartnerList />
+  </div>
+  </div>
+</div> <!-- frontPage_news -->
+  </body>
+</html>

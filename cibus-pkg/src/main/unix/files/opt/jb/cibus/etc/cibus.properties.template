@@ -1,0 +1,9 @@
+onp.jdbc.url=jdbc:postgresql://localhost:5432/onp
+onp.jdbc.username=onp
+onp.jdbc.password=
+
+@prod.mail.contextPath=http://java.no/cibus
+@test.mail.contextPath=http://test.java.no/cibus
+
+mail.server=localhost
+mail.port=25

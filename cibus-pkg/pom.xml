@@ -1,0 +1,75 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>no.java.cibus</groupId>
+    <artifactId>cibus</artifactId>
+    <version>1.0-alpha-1-SNAPSHOT</version>
+  </parent>
+  <artifactId>cibus-pkg</artifactId>
+  <name>Cibus :: Solaris Package</name>
+  <packaging>pkg</packaging>
+  <dependencies>
+    <dependency>
+      <groupId>no.java.cibus</groupId>
+      <artifactId>cibus-web</artifactId>
+      <version>1.0-alpha-1-SNAPSHOT</version>
+      <type>war</type>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>unix-maven-plugin</artifactId>
+        <version>1.0-alpha-2</version>
+        <extensions>true</extensions>
+        <configuration>
+          <contact>javaBin drift</contact>
+          <contactEmail>drift@java.no</contactEmail>
+          <defaults>
+            <fileAttributes>
+              <user>javabin</user>
+              <group>javabin</group>
+            </fileAttributes>
+            <directoryAttributes>
+              <user>javabin</user>
+              <group>javabin</group>
+            </directoryAttributes>
+          </defaults>
+          <assembly>
+            <copy>
+              <artifact>no.java.cibus:cibus-web:war</artifact>
+              <toFile>/opt/jb/cibus/cibus.war</toFile>
+            </copy>
+            <copy>
+              <path>src/main/unix/files</path>
+              <toFile>/</toFile>
+            </copy>
+<!--
+            <mkdirs>
+              <attributes>
+                <user>?</user>
+                <group>?</group>
+                <mode>?</mode>
+              </attributes>
+              <paths>
+                <path>/</path>
+                <path>/opt</path>
+              </paths>
+            </mkdirs>
+-->
+            <mkdirs>
+              <attributes>
+                <user>root</user>
+                <group>other</group>
+              </attributes>
+              <paths>
+                <path>/opt/jb</path>
+              </paths>
+            </mkdirs>
+          </assembly>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

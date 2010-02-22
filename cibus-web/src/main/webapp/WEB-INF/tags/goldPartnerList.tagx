@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+
+  <ul class="ad">
+    <!--
+    <li class="">
+      <a title="Objectware" target="_blank" href="http://www.objectware.no/">
+        <img border="0" alt="Objectware" src="${pageContext.request.contextPath}/image.do?id=13930"/>
+      </a>
+    </li>
+    <li class="">
+      <a title="Bouvet" target="_blank" href="http://www.bouvet.no/">
+        <img border="0" alt="Bouvet" src="${pageContext.request.contextPath}/image.do?id=13927"/>
+      </a>
+    </li>
+    <li class="">
+      <a title="Know IT Objectnet" target="_blank" href="http://www.knowit.no/">
+        <img border="0" alt="Know IT Objectnet" src="${pageContext.request.contextPath}/image.do?id=13925"/>
+      </a>
+    </li>
+    -->
+  </ul>
+</jsp:root>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+          xmlns:decorator="http://www.opensymphony.com/sitemesh/decorator"
+          xmlns:page="http://www.opensymphony.com/sitemesh/page"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:twitter="http://tags.java.no/twitter"
+          xmlns:parts="urn:jsptagdir:/WEB-INF/tags">
+
+    <twitter:search term="javaBin" var="tweets"/>
+
+    <hr/>
+    <div>
+        <h3>Kvitter om javaBin</h3>
+        <ul id="tweets">
+            <c:forEach var="tweet" items="${tweets}">
+                <li>
+                    <p class="tweet_text">${tweet.text}</p>
+                    <p class="tweet_name"><a href="${tweet.person.url}">${tweet.person.name}</a></p>
+                </li>
+            </c:forEach>
+        </ul>
+    </div>
+
+</jsp:root>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:decorator="http://www.opensymphony.com/sitemesh/decorator"
+      xmlns:page="http://www.opensymphony.com/sitemesh/page"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:parts="urn:jsptagdir:/WEB-INF/tags"
+      xmlns:jsp="http://java.sun.com/JSP/Page">
+<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8" />
+<head><title>javaBin - Arkiv</title></head>
+<body>
+
+<div id="frontPage_news">
+  <div class="wrapper">
+    <div class="leftarea">
+      <parts:meetingList year="${requestScope['year']}" category="${Category.moter_oslo}" />
+      <parts:meetingList year="${requestScope['year']}" category="${Category.moter_trondheim}" />
+      <parts:meetingList year="${requestScope['year']}" category="${Category.moter_bergen}" />
+      <parts:meetingList year="${requestScope['year']}" category="${Category.moter_sorlandet}" />
+      <parts:meetingList year="${requestScope['year']}" category="${Category.moter_stavanger}" />
+    </div>
+  </div>
+    
+  <div class="announcements">
+    <parts:tipsLenke />
+	<parts:sokeFelt />
+    <parts:goldPartnerList />
+  </div>
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<jsp:root xmlns="http://www.w3.org/1999/xhtml" 
+          xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+
+      <div id="search">
+        <form name="f" action="http://www.google.com/search">
+          <input type="hidden" value="en" name="hl"/>
+          <input type="hidden" name="as_sitesearch" value="java.no"/>
+          <input type="hidden" value="iso-8859-1" name="ie"/>
+          <input type="hidden" value="iso-8859-1" name="oe"/>
+          <input type="text" value="" name="q" size="12" maxlength="256" class="search_input"/>
+          <input type="submit" name="btnG" value="" class="search_btn"/>
+        </form>
+      </div>
+      <div class="clearboth"><!-- stfu! --></div>
+
+</jsp:root>

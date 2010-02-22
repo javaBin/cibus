@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<jsp:root xmlns="http://www.w3.org/1999/xhtml" 
+          xmlns:parts="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+
+    <div class="announcements">
+      <h2>Kommende møter</h2>
+      <ul class="horiz">
+    	<parts:moteTab tabName="Oslo" tabId="osloMoteTab" category="${Category.moter_oslo}" />  
+    	<parts:moteTab tabName="Tr.heim" tabId="trondheimMoteTab" category="${Category.moter_trondheim}" />  
+    	<parts:moteTab tabName="Berg." tabId="bergenMoteTab" category="${Category.moter_bergen}" />  
+    	<parts:moteTab tabName="Sørl." tabId="sorlandetMoteTab" category="${Category.moter_sorlandet}" />
+    	<parts:moteTab tabName="Stav." tabId="stavangerMoteTab" category="${Category.moter_stavanger}" />
+      </ul>
+      <div class="container">
+        <!-- Keep open -->
+      </div>
+    </div>
+</jsp:root>

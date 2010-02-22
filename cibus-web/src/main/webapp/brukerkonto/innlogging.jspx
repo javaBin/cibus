@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:decorator="http://www.opensymphony.com/sitemesh/decorator"
+      xmlns:page="http://www.opensymphony.com/sitemesh/page"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:portal="http://tags.java.no/portal"
+      xmlns:parts="urn:jsptagdir:/WEB-INF/tags"
+      xmlns:jsp="http://java.sun.com/JSP/Page">
+<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8" />
+<jsp:useBean id="frontJspBean" type="no.java.portal.page.FrontJspBean" scope="application" />
+<head><title>javaBin - Forsiden</title></head>
+<body>
+<div id="frontPage_news">
+  <div class="wrapper">
+    <div class="leftarea">
+      <h2>Innlogging</h2>
+      Siden du prøvde å nå trenger innlogging.
+      <form method="post" action="${pageContext.request.contextPath}/j_spring_security_check">
+        <p>
+          Brukernavn: 
+        </p>
+        <p>
+          <input type="text" tabindex="1" class="login_input" value="" name="j_username" size="10"/>
+        </p>
+        <p>
+          Passord: 
+        </p>
+        <p>
+          <input type="password" tabindex="2" class="login_input" value="" name="j_password" size="10"/>
+        </p>
+        <p>
+          <input type="submit" value="Logg inn" class="login_input" tabindex="3"/>
+        </p>
+      </form>
+    </div>
+
+    <div class="announcements">
+      <parts:tipsLenke />
+	  <parts:sokeFelt />
+      <parts:goldPartnerList />
+      <parts:javaBinTweets />
+    </div>
+  </div>
+</div>
+</body>
+</html>

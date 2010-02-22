@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+          xmlns:decorator="http://www.opensymphony.com/sitemesh/decorator"
+          xmlns:page="http://www.opensymphony.com/sitemesh/page"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:portal="http://tags.java.no/portal"
+          xmlns:parts="urn:jsptagdir:/WEB-INF/tags">
+<jsp:directive.attribute name="title" required="true" />
+<jsp:directive.attribute name="feedBean" required="true" />
+
+      <portal:getFeedItems feedBean="${feedBean}" count="5" var="feedItems"/>
+      <div class="column">
+        <h3>${title}</h3>
+        <ul>
+          <c:forEach var="feedItem" items="${feedItems}" >
+          	<li><a href="${feedItem.link}">${feedItem.title}</a> </li>
+          </c:forEach>
+        </ul>
+      </div>
+
+</jsp:root>

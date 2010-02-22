@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:decorator="http://www.opensymphony.com/sitemesh/decorator"
+      xmlns:page="http://www.opensymphony.com/sitemesh/page"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:portal="http://tags.java.no/portal"
+      xmlns:parts="urn:jsptagdir:/WEB-INF/tags"
+      xmlns:jsp="http://java.sun.com/JSP/Page">
+<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8" />
+<jsp:useBean id="frontJspBean" type="no.java.portal.page.FrontJspBean" scope="application" />
+<head><title>javaBin - Brukerinnstillinger</title></head>
+<body>
+<div id="frontPage_news">
+  <div class="wrapper">
+    <div class="leftarea">
+      <h2>Brukerinnstillinger</h2>
+      <c:set var="user" value="${frontJspBean.currentUser}" />
+      <form id="editUserForm" action="${pageContext.request.contextPath}/rest/user" method="post">
+      <c:forEach var="subscribedCategory" items="${user.subscribedCategories}" >
+      <p><parts:checkbox name="category.${subscribedCategory.categoryId}" value="${subscribedCategory.selected}" description="${subscribedCategory.description}" /></p>
+      </c:forEach>
+      <p>
+      	E-postadresse: <input id="formEMail" type="text" name="email" value="${user.email}"/> 
+      </p>
+      <input type="submit" value="Lagre" />
+      <p class="formError">
+      </p>
+      <p class="formSuccess">
+        Brukerinnstillinger oppdatert!
+      </p>
+      </form>
+    </div>
+
+    <div class="announcements">
+      <parts:tipsLenke />
+	  <parts:sokeFelt />
+      <parts:goldPartnerList />
+      <parts:javaBinTweets />
+    </div>
+  </div>
+</div>
+</body>
+</html>

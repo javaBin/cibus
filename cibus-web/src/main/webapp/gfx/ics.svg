@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="ics.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+   inkscape:export-xdpi="2.77"
+   inkscape:export-ydpi="2.77">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3157">
+      <stop
+         style="stop-color:#2a63ff;stop-opacity:1;"
+         offset="0"
+         id="stop3159" />
+      <stop
+         id="stop3165"
+         offset="0.5"
+         style="stop-color:#2abdff;stop-opacity:1;" />
+      <stop
+         style="stop-color:#2a63ff;stop-opacity:1;"
+         offset="1"
+         id="stop3161" />
+    </linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3157"
+       id="linearGradient3163"
+       x1="100"
+       y1="152.36218"
+       x2="660"
+       y2="712.36218"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.77140741"
+     inkscape:cx="615.43805"
+     inkscape:cy="619.96098"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1076"
+     inkscape:window-height="800"
+     inkscape:window-x="303"
+     inkscape:window-y="13">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2383" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#2a5fff;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1;opacity:0.33215548"
+       id="rect2385"
+       width="600"
+       height="600"
+       x="80"
+       y="132.36218"
+       ry="0"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:url(#linearGradient3163);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.86666667px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect2387"
+       width="600"
+       height="600"
+       x="80"
+       y="132.36218"
+       ry="119.94788"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3163"
+       width="80"
+       height="80"
+       x="140.00003"
+       y="292.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3165"
+       width="80"
+       height="80"
+       x="240.00003"
+       y="292.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3167"
+       width="80"
+       height="80"
+       x="340.00003"
+       y="292.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3169"
+       width="80"
+       height="80"
+       x="440.00003"
+       y="292.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3171"
+       width="80"
+       height="80"
+       x="540"
+       y="292.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3173"
+       width="80"
+       height="80"
+       x="140.00005"
+       y="392.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3175"
+       width="80"
+       height="80"
+       x="240.00003"
+       y="392.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3177"
+       width="80"
+       height="80"
+       x="340.00003"
+       y="392.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ff0000;fill-opacity:1;stroke:none"
+       id="rect3179"
+       width="80"
+       height="80"
+       x="440.00003"
+       y="392.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3181"
+       width="80"
+       height="80"
+       x="540"
+       y="392.36221"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3183"
+       width="80"
+       height="80"
+       x="140.00003"
+       y="492.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3185"
+       width="80"
+       height="80"
+       x="240"
+       y="492.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3187"
+       width="80"
+       height="80"
+       x="340"
+       y="492.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3189"
+       width="80"
+       height="80"
+       x="440"
+       y="492.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3191"
+       width="80"
+       height="80"
+       x="540"
+       y="492.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3193"
+       width="80"
+       height="80"
+       x="140.00006"
+       y="592.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3195"
+       width="80"
+       height="80"
+       x="240.00005"
+       y="592.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3197"
+       width="80"
+       height="80"
+       x="340.00003"
+       y="592.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:0.44169611;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3199"
+       width="80"
+       height="80"
+       x="440.00003"
+       y="592.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:0.44169611;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3201"
+       width="80"
+       height="80"
+       x="540"
+       y="592.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:0.44169611;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3203"
+       width="80"
+       height="80"
+       x="140"
+       y="192.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:0.44169611;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3205"
+       width="80"
+       height="80"
+       x="240"
+       y="192.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3207"
+       width="80"
+       height="80"
+       x="340"
+       y="192.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3209"
+       width="80"
+       height="80"
+       x="440"
+       y="192.36218"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3211"
+       width="80"
+       height="80"
+       x="540"
+       y="192.3622"
+       ry="17.962353"
+       inkscape:export-filename="/Users/thoraageeldby/Documents/workspace/cibus/cibus-web/src/main/webapp/gfx/ics.png"
+       inkscape:export-xdpi="2.77"
+       inkscape:export-ydpi="2.77" />
+  </g>
+</svg>

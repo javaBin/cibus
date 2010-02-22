@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:decorator="http://www.opensymphony.com/sitemesh/decorator"
+      xmlns:page="http://www.opensymphony.com/sitemesh/page"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:portal="http://tags.java.no/portal"
+      xmlns:parts="urn:jsptagdir:/WEB-INF/tags"
+      xmlns:jsp="http://java.sun.com/JSP/Page">
+<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8"/>
+<jsp:useBean id="frontJspBean" type="no.java.portal.page.FrontJspBean" scope="application"/>
+
+<head><title>javaBin - Medlemmer</title></head>
+<body>
+<div id="frontPage_news">
+    <div class="wrapper">
+        <div class="leftarea">
+            <h2>Medlemmer</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Navn</th>
+                    <th>Bedrift</th>
+                    <th>Kontaktperson</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="member" items="${frontJspBean.memberPeople}">
+                    <tr>
+                        <td>${member.name}</td>
+                        <td>${member.memberCompany != null ? member.memberCompany.name : 'Personlig medlem'}</td>
+                        <td>${member.contactPerson ? 'Ja' : ''}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="announcements">
+            <parts:tipsLenke/>
+            <parts:sokeFelt/>
+            <parts:goldPartnerList/>
+        </div>
+    </div>
+</div>
+<!-- frontPage_news -->
+
+</body>
+</html>

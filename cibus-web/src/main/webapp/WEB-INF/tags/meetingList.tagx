@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<jsp:root xmlns="http://www.w3.org/1999/xhtml" 
+	      xmlns:c="http://java.sun.com/jsp/jstl/core"
+	      xmlns:portal="http://tags.java.no/portal"
+          xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+
+<jsp:directive.attribute name="category" required="true" type="no.java.portal.domain.Category" />
+<jsp:directive.attribute name="year" required="true" />
+
+    <portal:getMeetings var="meetings" year="${year}" category="${category}" />
+    <c:if test="${not empty meetings}">
+      <h2>${category.name}</h2>
+      <c:forEach var="meeting" items="${meetings}">
+        <h3><a title="" href="${pageContext.request.contextPath}/moter/${meeting.metadata.id}">${meeting.title}</a></h3>
+        <p><strong>Tid:</strong> ${meeting.time}</p>
+        <p><strong>Sted:</strong> ${meeting.place}</p>
+        <p>${meeting.ingress}</p>
+      </c:forEach>
+      <br/>
+      <br/> 
+    </c:if>
+      
+</jsp:root>

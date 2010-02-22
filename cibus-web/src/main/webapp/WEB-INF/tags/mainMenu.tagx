@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:parts="urn:jsptagdir:/WEB-INF/tags"
+          xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.attribute name="current" required="true" type="java.lang.String"/>
+    <div id="mainmenu">
+        <div class="wrapper">
+            <ul id="menu_items" class="horiz">
+                <parts:mainMenuItem current="${current}" id="nyheter" title="Nyheter" href="${pageContext.request.contextPath}/nyheter/"/>
+                <parts:mainMenuItem current="${current}" id="javazone" title="JavaZone" href="http://www.javazone.no"/>
+                <parts:mainMenuItem current="${current}" id="forum" title="Forum" href="http://www.java.no/forum"/>
+                <!--parts:mainMenuItem current="${current}" id="partnere" title="Partnere" href="${pageContext.request.contextPath}/partnere/"/-->
+                <parts:mainMenuItem current="${current}" id="medlemmer" title="Medlemmer" href="${pageContext.request.contextPath}/medlemmer/"/>
+                <parts:mainMenuItem current="${current}" id="javabin" title="javaBin" href="${pageContext.request.contextPath}/javabin/"/>
+                <parts:mainMenuItem current="${current}" id="helter" title="Helter" href="${pageContext.request.contextPath}/helter"/>
+                <parts:mainMenuItem current="${current}" id="arkiv" title="Arkiv" href="${pageContext.request.contextPath}/arkiv/"/>
+            </ul>
+            <div id="SunSponsor">
+                <a title="Sun" target="_blank" href="http://www.sun.no/">
+                    <img border="0" alt="Sun" src="${pageContext.request.contextPath}/gfx/java_no_2007/logos/sun.gif"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</jsp:root>

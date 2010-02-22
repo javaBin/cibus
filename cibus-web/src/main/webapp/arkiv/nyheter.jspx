@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:decorator="http://www.opensymphony.com/sitemesh/decorator"
+      xmlns:page="http://www.opensymphony.com/sitemesh/page"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:portal="http://tags.java.no/portal"
+      xmlns:parts="urn:jsptagdir:/WEB-INF/tags"
+      xmlns:jsp="http://java.sun.com/JSP/Page">
+
+<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8"/>
+<portal:getNewsFromMonth
+        year="${requestScope['year']}"
+        category="${Category.nyheter}" 
+        month="${requestScope['month']}" var="articles"/>
+<body>
+<div id="frontPage_news">
+    <div class="wrapper">
+        <div class="leftarea">
+            <c:forEach var="article" items="${articles}">
+                <parts:news article="${article}" />
+            </c:forEach>
+        </div>
+        <div class="announcements">
+            <parts:tipsLenke/>
+            <parts:sokeFelt/>
+            <parts:goldPartnerList/>
+        </div>
+    </div>
+</div>
+</body>
+</html>

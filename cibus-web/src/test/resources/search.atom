@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:google="http://base.google.com/ns/1.0" xml:lang="en-US" xmlns:openSearch="http://a9.com/-/spec/opensearch/1.1/" xmlns="http://www.w3.org/2005/Atom" xmlns:twitter="http://api.twitter.com/">
+  <id>tag:search.twitter.com,2005:search/javabin</id>
+  <link type="text/html" rel="alternate" href="http://search.twitter.com/search?q=javabin"/>
+  <link type="application/atom+xml" rel="self" href="http://search.twitter.com/search.atom?q=javabin"/>
+  <title>javabin - Twitter Search</title>
+  <link type="application/opensearchdescription+xml" rel="search" href="http://search.twitter.com/opensearch.xml"/>
+  <link type="application/atom+xml" rel="refresh" href="http://search.twitter.com/search.atom?q=javabin&amp;since_id=1141830081"/>
+  <updated>2009-01-07T18:18:16Z</updated>
+  <openSearch:itemsPerPage>15</openSearch:itemsPerPage>
+  <link type="application/atom+xml" rel="next" href="http://search.twitter.com/search.atom?max_id=1141830081&amp;page=2&amp;q=javabin"/>
+  <entry>
+    <id>tag:search.twitter.com,2005:1102425143</id>
+    <published>2009-01-07T18:18:16Z</published>
+    <link type="text/html" rel="alternate" href="http://twitter.com/whatskarbodoing/statuses/1102425143"/>
+    <title>finalizing presentation for tomorrow's javaBin - "Software Agents with JADE" at UiA Krsand @ 18:00</title>
+    <content type="html">finalizing presentation for tomorrow's &lt;b&gt;javaBin&lt;/b&gt; - &amp;quot;Software Agents with JADE&amp;quot; at UiA Krsand @ 18:00</content>
+    <updated>2009-01-07T18:18:16Z</updated>
+    <link type="image/png" rel="image" href="http://s3.amazonaws.com/twitter_production/profile_images/62744914/stickman_normal.jpg"/>
+    <author>
+      <name>whatskarbodoing (Jaran)</name>
+      <uri>http://twitter.com/whatskarbodoing</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:1099085113</id>
+    <published>2009-01-06T08:22:15Z</published>
+    <link type="text/html" rel="alternate" href="http://twitter.com/Integrasco/statuses/1099085113"/>
+    <title>Jaran is giving a talk on Software Agents and JADE at javaBin on Thursday, January 8th, 18:00 at the University in Kristiansand.</title>
+    <content type="html">Jaran is giving a talk on Software Agents and JADE at &lt;b&gt;javaBin&lt;/b&gt; on Thursday, January 8th, 18:00 at the University in Kristiansand.</content>
+    <updated>2009-01-06T08:22:15Z</updated>
+    <link type="image/png" rel="image" href="http://s3.amazonaws.com/twitter_production/profile_images/65968561/wiki_normal.png"/>
+    <author>
+      <name>Integrasco (Integrasco)</name>
+      <uri>http://twitter.com/Integrasco</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:1066672668</id>
+    <published>2008-12-19T07:44:32Z</published>
+    <link type="text/html" rel="alternate" href="http://twitter.com/phareim/statuses/1066672668"/>
+    <title>@loctanvo takk mann! alles ist sehr gut i Haugesund! Koder java og pusler i huset :) ..hvis vi bare fikk i gang et lokallag av javabin n&#229; ;)</title>
+    <content type="html">&lt;a href="http://twitter.com/loctanvo"&gt;@loctanvo&lt;/a&gt; takk mann! alles ist sehr gut i Haugesund! Koder java og pusler i huset :) ..hvis vi bare fikk i gang et lokallag av &lt;b&gt;javabin&lt;/b&gt; n&#229; ;)</content>
+    <updated>2008-12-19T07:44:32Z</updated>
+    <link type="image/png" rel="image" href="http://s3.amazonaws.com/twitter_production/profile_images/37571292/n337700057_18302_733_normal.jpg"/>
+    <link type="application/atom+xml" rel="thread" href="http://search.twitter.com/search/thread/1066672668.atom"/>
+    <author>
+      <name>phareim (Petter Hareim)</name>
+      <uri>http://twitter.com/phareim</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:1039808698</id>
+    <published>2008-12-05T08:13:29Z</published>
+    <link type="text/html" rel="alternate" href="http://twitter.com/ttorland/statuses/1039808698"/>
+    <title>javaBin julebord var jammen g&#248;y! :)</title>
+    <content type="html">&lt;b&gt;javaBin&lt;/b&gt; julebord var jammen g&#248;y! :)</content>
+    <updated>2008-12-05T08:13:29Z</updated>
+    <link type="image/png" rel="image" href="http://static.twitter.com/images/default_profile_normal.png"/>
+    <author>
+      <name>ttorland (Thomas)</name>
+      <uri>http://twitter.com/ttorland</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:1039281724</id>
+    <published>2008-12-05T01:08:06Z</published>
+    <link type="text/html" rel="alternate" href="http://twitter.com/jhannes/statuses/1039281724"/>
+    <title>Back from #javaBin Christmas meeting. Thanks to my co-speaker Patrick for a fun cooperation and to the crowd for an excellent evening.</title>
+    <content type="html">Back from &lt;a href="/search?q=%23javaBin"&gt;#&lt;b&gt;javaBin&lt;/b&gt;&lt;/a&gt; Christmas meeting. Thanks to my co-speaker Patrick for a fun cooperation and to the crowd for an excellent evening.</content>
+    <updated>2008-12-05T01:08:06Z</updated>
+    <link type="image/png" rel="image" href="http://s3.amazonaws.com/twitter_production/profile_images/64440441/profil-liten_normal.jpg"/>
+    <author>
+      <name>jhannes (Johannes Brodwall)</name>
+      <uri>http://twitter.com/jhannes</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:1038524315</id>
+    <published>2008-12-04T17:36:26Z</published>
+    <link type="text/html" rel="alternate" href="http://twitter.com/kaarenilsen/statuses/1038524315"/>
+    <title>At javaBIN Christmas party. Free beer, have to be fun.</title>
+    <content type="html">At &lt;b&gt;javaBIN&lt;/b&gt; Christmas party. Free beer, have to be fun.</content>
+    <updated>2008-12-04T17:36:26Z</updated>
+    <link type="image/png" rel="image" href="http://s3.amazonaws.com/twitter_production/profile_images/60398260/kaaren_normal.jpg"/>
+    <author>
+      <name>kaarenilsen (kaarenilsen)</name>
+      <uri>http://twitter.com/kaarenilsen</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:1038354603</id>
+    <published>2008-12-04T15:55:12Z</published>
+    <link type="text/html" rel="alternate" href="http://twitter.com/teisl07/statuses/1038354603"/>
+    <title>JavaBin m&#248;te og julemiddag...</title>
+    <content type="html">&lt;b&gt;JavaBin&lt;/b&gt; m&#248;te og julemiddag...</content>
+    <updated>2008-12-04T15:55:12Z</updated>
+    <link type="image/png" rel="image" href="http://static.twitter.com/images/default_profile_normal.png"/>
+    <author>
+      <name>teisl07 (teisl07)</name>
+      <uri>http://twitter.com/teisl07</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:1038349104</id>
+    <published>2008-12-04T15:52:10Z</published>
+    <link type="text/html" rel="alternate" href="http://twitter.com/anderssv/statuses/1038349104"/>
+    <title>time for javabin christmas meeting :) http://tinyurl.com/6esxcr/showReply&amp;articleid=20731</title>
+    <content type="html">time for &lt;b&gt;javabin&lt;/b&gt; christmas meeting :) &lt;a href="http://tinyurl.com/6esxcr/showReply"&gt;http://tinyurl.com/6esxcr/showReply&lt;/a&gt;&amp;amp;articleid=20731</content>
+    <updated>2008-12-04T15:52:10Z</updated>
+    <link type="image/png" rel="image" href="http://s3.amazonaws.com/twitter_production/profile_images/65963084/IMG_3194_normal.jpg"/>
+    <author>
+      <name>anderssv (Anders Sveen)</name>
+      <uri>http://twitter.com/anderssv</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:1038199540</id>
+    <published>2008-12-04T14:28:00Z</published>
+    <link type="text/html" rel="alternate" href="http://twitter.com/whatskarbodoing/statuses/1038199540"/>
+    <title>javaBin styrem&#248;te -&gt; medlemsm&#248;te -&gt; julebord &lt;:o)</title>
+    <content type="html">&lt;b&gt;javaBin&lt;/b&gt; styrem&#248;te -&amp;gt; medlemsm&#248;te -&amp;gt; julebord &amp;lt;:o)</content>
+    <updated>2008-12-04T14:28:00Z</updated>
+    <link type="image/png" rel="image" href="http://s3.amazonaws.com/twitter_production/profile_images/62744914/stickman_normal.jpg"/>
+    <author>
+      <name>whatskarbodoing (Jaran)</name>
+      <uri>http://twitter.com/whatskarbodoing</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:1038032982</id>
+    <published>2008-12-04T12:26:26Z</published>
+    <link type="text/html" rel="alternate" href="http://twitter.com/filipvanlaenen/statuses/1038032982"/>
+    <title>is looking forward to Javabin's Christmas meeting this evening http://tinyurl.com/6esxcr/showReply&amp;articleid=20731</title>
+    <content type="html">is looking forward to &lt;b&gt;Javabin&lt;/b&gt;'s Christmas meeting this evening &lt;a href="http://tinyurl.com/6esxcr/showReply"&gt;http://tinyurl.com/6esxcr/showReply&lt;/a&gt;&amp;amp;articleid=20731</content>
+    <updated>2008-12-04T12:26:26Z</updated>
+    <link type="image/png" rel="image" href="http://static.twitter.com/images/default_profile_normal.png"/>
+    <author>
+      <name>filipvanlaenen (filipvanlaenen)</name>
+      <uri>http://twitter.com/filipvanlaenen</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:1037930560</id>
+    <published>2008-12-04T10:42:51Z</published>
+    <link type="text/html" rel="alternate" href="http://twitter.com/flub/statuses/1037930560"/>
+    <title>Mmmm... Soon pinnekj&#248;tt and beers at javaBin xmas meeting!</title>
+    <content type="html">Mmmm... Soon pinnekj&#248;tt and beers at &lt;b&gt;javaBin&lt;/b&gt; xmas meeting!</content>
+    <updated>2008-12-04T10:42:51Z</updated>
+    <link type="image/png" rel="image" href="http://s3.amazonaws.com/twitter_production/profile_images/60955492/yngvar_small_normal.jpg"/>
+    <author>
+      <name>flub (Yngvar S&#248;rensen)</name>
+      <uri>http://twitter.com/flub</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:1036701665</id>
+    <published>2008-12-03T19:12:49Z</published>
+    <link type="text/html" rel="alternate" href="http://twitter.com/javatotto/statuses/1036701665"/>
+    <title>@tobiast I hope the javaBin pinnekj&#248;tt will be in a different league than last years pinnekj&#248;tt...</title>
+    <content type="html">&lt;a href="http://twitter.com/tobiast"&gt;@tobiast&lt;/a&gt; I hope the &lt;b&gt;javaBin&lt;/b&gt; pinnekj&#248;tt will be in a different league than last years pinnekj&#248;tt...</content>
+    <updated>2008-12-03T19:12:49Z</updated>
+    <link type="image/png" rel="image" href="http://s3.amazonaws.com/twitter_production/profile_images/60439925/totto-114_normal.jpg"/>
+    <link type="application/atom+xml" rel="thread" href="http://search.twitter.com/search/thread/1036701665.atom"/>
+    <author>
+      <name>javatotto (Totto)</name>
+      <uri>http://twitter.com/javatotto</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:1036691459</id>
+    <published>2008-12-03T19:06:45Z</published>
+    <link type="text/html" rel="alternate" href="http://twitter.com/tobiast/statuses/1036691459"/>
+    <title>I&#180;m REALLY looking forward to pinnekj&#248;tt tomorrow. javaBin julebord  :-D</title>
+    <content type="html">I&#180;m REALLY looking forward to pinnekj&#248;tt tomorrow. &lt;b&gt;javaBin&lt;/b&gt; julebord  :-D</content>
+    <updated>2008-12-03T19:06:45Z</updated>
+    <link type="image/png" rel="image" href="http://static.twitter.com/images/default_profile_normal.png"/>
+    <author>
+      <name>tobiast (tobiast)</name>
+      <uri>http://twitter.com/tobiast</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:1033900471</id>
+    <published>2008-12-02T09:29:33Z</published>
+    <link type="text/html" rel="alternate" href="http://twitter.com/Integrasco/statuses/1033900471"/>
+    <title>Aleksander is giving a talk on Apache Lucene and Solr at javaBin this coming Thursday, December 4th, 18:00 at the University in Grimstad.</title>
+    <content type="html">Aleksander is giving a talk on Apache Lucene and Solr at &lt;b&gt;javaBin&lt;/b&gt; this coming Thursday, December 4th, 18:00 at the University in Grimstad.</content>
+    <updated>2008-12-02T09:29:33Z</updated>
+    <link type="image/png" rel="image" href="http://s3.amazonaws.com/twitter_production/profile_images/65968561/wiki_normal.png"/>
+    <author>
+      <name>Integrasco (Integrasco)</name>
+      <uri>http://twitter.com/Integrasco</uri>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:search.twitter.com,2005:1015368975</id>
+    <published>2008-11-20T21:00:50Z</published>
+    <link type="text/html" rel="alternate" href="http://twitter.com/andrev/statuses/1015368975"/>
+    <title>on the way home from JavaBin talk on Apache Sling. REST meets JCR. Interesting idea, not very mature.</title>
+    <content type="html">on the way home from &lt;b&gt;JavaBin&lt;/b&gt; talk on Apache Sling. REST meets JCR. Interesting idea, not very mature.</content>
+    <updated>2008-11-20T21:00:50Z</updated>
+    <link type="image/png" rel="image" href="http://s3.amazonaws.com/twitter_production/profile_images/52676102/n521636265_9883_normal.jpg"/>
+    <author>
+      <name>andrev (andrev)</name>
+      <uri>http://twitter.com/andrev</uri>
+    </author>
+  </entry>
+</feed>

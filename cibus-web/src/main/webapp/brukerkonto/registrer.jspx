@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:decorator="http://www.opensymphony.com/sitemesh/decorator"
+      xmlns:page="http://www.opensymphony.com/sitemesh/page"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:portal="http://tags.java.no/portal"
+      xmlns:parts="urn:jsptagdir:/WEB-INF/tags"
+      xmlns:jsp="http://java.sun.com/JSP/Page">
+<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8" />
+<jsp:useBean id="frontJspBean" type="no.java.portal.page.FrontJspBean" scope="application" />
+<head><title>javaBin - Registrer bruker</title></head>
+<body>
+<div id="frontPage_news">
+  <div class="wrapper">
+    <div class="leftarea">
+      <h2>Registrer bruker</h2>
+      <form id="registerUserForm" action="${pageContext.request.contextPath}/rest/temporary/user" method="post">
+      <table>
+        <tr><td>Brukernavn: </td><td><input type="text" name="userName"/></td></tr>
+        <tr><td>E-post: </td><td><input id="formEMail" type="text" name="email" /></td></tr>
+        <tr><td>Passord: </td><td><input id="formPassword" type="password" name="password" /></td></tr>
+        <tr><td>Bekreft passord: </td><td><input id="formPasswordConfirm" type="password" name="confirmPassword" /></td></tr>
+      </table>
+      <p>
+        <input type="submit" value="Lagre" />
+      </p>
+      <p class="formError">
+      </p>
+      <p class="formSuccess">
+        Brukeren er registrert. Du vil om kort tid motta en e-post med en link som du bruker for å bekrefte registreringen.
+      </p>
+      </form>
+    </div>
+
+    <div class="announcements">
+      <parts:tipsLenke />
+	  <parts:sokeFelt />
+      <parts:goldPartnerList />
+      <parts:javaBinTweets />
+    </div>
+  </div>
+</div>
+</body>
+</html>

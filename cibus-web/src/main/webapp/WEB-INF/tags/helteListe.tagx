@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:portal="http://tags.java.no/portal"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.attribute name="list_heading" required="true"/>
+    <jsp:directive.attribute name="category" required="true"/>
+
+    <h3>${list_heading}</h3>
+    <portal:getArticleIds var="ids" category="${category}" length="200"/>
+    <table cellpadding="0" cellspacing="0" border="0" class="helte-liste">
+      <c:forEach var="heroId" items="${ids}">
+        <portal:getHero articleId="${heroId}" var="hero"/>
+          <tr>
+            <td class="helt">
+                <a href="helter/${hero.metadata.id}">${hero.navn}</a>
+                <c:if test="${hero.firma != null and hero.firma != ''}">
+                    (<a href="${hero.firmaURL}">${hero.firma}</a>)
+                </c:if>
+            </td>
+          </tr>
+      </c:forEach>
+    </table>
+</jsp:root>

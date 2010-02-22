@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:decorator="http://www.opensymphony.com/sitemesh/decorator"
+      xmlns:page="http://www.opensymphony.com/sitemesh/page"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:parts="urn:jsptagdir:/WEB-INF/tags"
+      xmlns:jsp="http://java.sun.com/JSP/Page">
+<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8" />
+<jsp:useBean id="frontJspBean" type="no.java.portal.page.FrontJspBean" scope="application" />
+<c:set var="ctxPath"><jsp:expression>request.getContextPath()</jsp:expression></c:set>
+<head><title>javaBin - Arkiv</title></head>
+<body>
+
+<div id="frontPage_news">
+  <div class="wrapper">
+    <div class="leftarea">
+
+    <h2>Arkiv</h2>
+    <div id="moterDiv">
+      <h3>Møter</h3>
+      <ul>
+	    <c:forEach var="dt" items="${frontJspBean.years}">
+          <li>
+            <a href="${ctxPath}/arkiv/moter/${dt.year}">${dt.year}</a>
+          </li>
+        </c:forEach>
+      </ul>
+    </div>
+    <br/>
+     <br/>
+    <div id="nyheterDiv">
+      <h3>
+        Nyheter
+      </h3>
+      <ul>
+        <c:forEach var="dt" items="${frontJspBean.years}">
+        <li>
+          ${dt.year}
+          	<p>
+              <c:forEach var="month" items="${frontJspBean.months}">
+                  <a href="${ctxPath}/arkiv/nyheter/${dt.year}/${month.key}">${month.value}</a>
+              </c:forEach>
+            </p>
+        </li>
+        </c:forEach>
+      </ul>
+    </div>
+    <br/>
+    <br/>
+ <!-- module "Artikkel med mal" end -->
+    </div>
+  <div class="announcements">
+    <parts:tipsLenke />
+	<parts:sokeFelt />
+    <parts:goldPartnerList />
+  </div>
+
+  </div>
+</div>
+</body>
+
+</html>

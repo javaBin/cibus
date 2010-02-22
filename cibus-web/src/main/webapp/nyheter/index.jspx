@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:decorator="http://www.opensymphony.com/sitemesh/decorator"
+      xmlns:page="http://www.opensymphony.com/sitemesh/page"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:portal="http://tags.java.no/portal"
+      xmlns:parts="urn:jsptagdir:/WEB-INF/tags"
+      xmlns:jsp="http://java.sun.com/JSP/Page">
+<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8" />
+<jsp:useBean id="frontJspBean" type="no.java.portal.page.FrontJspBean" scope="application" />
+<head><title>javaBin - Forsiden</title></head>
+<body>
+<div id="mainmodule">
+  <div class="wrapper">
+    <c:forEach var="article" items="${frontJspBean.headArticles}">
+      <div class="column">
+        <h2><a href="${article.publicUrl}" title="Vis artikkel">${article.title}</a></h2>
+        <p class="author">av ${article.author}, ${portal:toShortString(article.metadata.created)}</p>
+        <p>${article.ingress}</p>
+        <ul class="lesmer">
+          <li><a href="${article.publicUrl}" title="Vis artikkel" class="lesmer">Les mer</a></li>
+          <c:if test="${article.source != null}">
+            <li><a href="${article.seeAlso}" title="Vis kilde" class="lesmer" target="_blank">
+              <c:choose>
+                <c:when test="${empty article.source}">Kilde</c:when>
+                <c:otherwise>${article.source}</c:otherwise>
+              </c:choose>
+            </a></li>
+          </c:if>
+        </ul>
+      </div>
+    </c:forEach>
+
+    <parts:upcomingMeetings />
+
+  </div>
+</div>
+<div id="frontPage_news">
+  <div class="wrapper">
+    <div class="leftarea">
+      <c:forEach var="article" items="${frontJspBean.articles}">
+        <parts:news article="${article}" />
+      </c:forEach>
+      <div class="furhterreading">
+        <a title="Les mer" href="#" class="lesmer standalone">Les mer i nyhetsarkivet</a>
+      </div>
+    </div>
+
+    <div class="announcements">
+      <parts:tipsLenke />
+	  <parts:sokeFelt />
+      <parts:goldPartnerList />
+      <parts:javaBinTweets />
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:decorator="http://www.opensymphony.com/sitemesh/decorator"
+      xmlns:page="http://www.opensymphony.com/sitemesh/page"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:portal="http://tags.java.no/portal"
+      xmlns:parts="urn:jsptagdir:/WEB-INF/tags"
+      xmlns:jsp="http://java.sun.com/JSP/Page">
+
+<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8"/>
+<jsp:useBean id="frontJspBean" type="no.java.portal.page.FrontJspBean" scope="application"/>
+<portal:getHero articleId='${requestScope["articleId"]}' var="hero"/>
+
+<body>
+<div id="frontPage_news">
+  <div class="wrapper">
+    <div class="leftarea">
+
+    <h2>${hero.navn}</h2>
+
+    <p>${hero.profesjon} <c:if test="${hero.firma != null}"> (<a href="${hero.firmaURL}">${hero.firma}</a>)</c:if></p>
+
+
+    <c:if test="${hero.kallenavn != null and hero.kallenavn != ''}">
+        <p>Kallenavn: ${hero.kallenavn}</p>
+    </c:if>
+
+    <c:if test="${hero.hjemmeside != null and hero.hjemmeside != ''}">
+        <p>Hjemmeside: <a href="${hero.hjemmeside}">${hero.hjemmeside}</a></p>
+    </c:if>
+
+    <c:if test="${(hero.favorittURL1Tekst != null and hero.favorittURL1Tekst != '') or
+                  (hero.favorittURL2Tekst != null and hero.favorittURL2Tekst != '') or
+                  (hero.favorittURL3Tekst != null and hero.favorittURL3Tekst!='')}">
+    <p>Favoritt-URLer:</p>
+      <ul>
+        <c:if test="${hero.favorittURL1Tekst != null}">
+            <li><a href="${hero.favorittURL1}">${hero.favorittURL1Tekst}</a></li>
+        </c:if>
+        <c:if test="${hero.favorittURL2Tekst != null}">
+            <li><a href="${hero.favorittURL2}">${hero.favorittURL2Tekst}</a></li>
+        </c:if>
+        <c:if test="${hero.favorittURL3Tekst != null}">
+            <li><a href="${hero.favorittURL3}">${hero.favorittURL3Tekst}</a></li>
+        </c:if>
+      </ul>
+    </c:if>
+    <c:if test="${hero.beskrivelse != null}">
+        <p>${hero.beskrivelse}</p>
+    </c:if>
+    </div>
+    <!-- TODO: Fikse bilde! (gravatar!?) -->
+    <div class="announcements">
+        <parts:tipsLenke />
+        <parts:sokeFelt />
+        <parts:goldPartnerList />
+    </div>
+  </div>
+</div>
+</body>
+</html>

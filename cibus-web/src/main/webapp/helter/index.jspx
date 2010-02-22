@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:decorator="http://www.opensymphony.com/sitemesh/decorator"
+      xmlns:page="http://www.opensymphony.com/sitemesh/page"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:portal="http://tags.java.no/portal"
+      xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:parts="urn:jsptagdir:/WEB-INF/tags">
+
+<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8"/>
+
+<head><title>javaBin - Helter</title></head>
+<body>
+<!-- not cached -->
+<div id="frontPage_news">
+    <div class="wrapper">
+        <div class="leftarea">
+            <div class="newsbody">
+                <h2>Helter</h2>
+
+                <p>Her finner du en oversikt over helter i javaBin-miljøet, foredragsholdere og styremedlemmer.</p>
+            </div>
+
+            <parts:helteListe list_heading="Styret - Admingruppa" category="${Category.styret_admin}" />
+
+            <parts:helteListe list_heading="Styret - Møtegruppa" category="${Category.styret_mote}" />
+
+            <parts:helteListe list_heading="Styret - Portalgruppa" category="${Category.styret_portal}" />
+
+            <parts:helteListe list_heading="Styret i Bergen" category="${Category.styret_bergen}" />
+
+            <parts:helteListe list_heading="Styret i Stavanger" category="${Category.styret_stavanger}" />
+
+            <parts:helteListe list_heading="Styret på Sørlandet" category="${Category.styret_sorlandet}" />
+
+            <parts:helteListe list_heading="Styret i Trondheim" category="${Category.styret_trondheim}" />
+
+            <parts:helteListe list_heading="JavaZone - Arrangementskomité" category="${Category.javazone_admin}" />
+
+            <parts:helteListe list_heading="JavaZone" category="${Category.javazone_program}" />
+
+            <parts:helteListe list_heading="Foredragsholdere" category="${Category.foredragsholdere}" />
+
+        </div>
+
+        <div class="announcements">
+            <parts:tipsLenke />
+            <parts:sokeFelt />
+            <parts:goldPartnerList />
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

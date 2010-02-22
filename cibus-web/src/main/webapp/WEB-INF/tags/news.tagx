@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+          xmlns:decorator="http://www.opensymphony.com/sitemesh/decorator"
+          xmlns:page="http://www.opensymphony.com/sitemesh/page"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:portal="http://tags.java.no/portal"
+          xmlns:parts="urn:jsptagdir:/WEB-INF/tags">
+
+<jsp:directive.attribute name="article" required="true" type="no.java.portal.domain.NewsItem"/>
+
+        <div class="widecolumn">
+            <h3><a href="${article.seeAlso}">${article.title}</a></h3>
+
+            <p class="author">${portal:toShortString(article.metadata.modified)}</p>
+
+            <p>${article.ingress}</p>
+            <ul class="lesmer">
+              <li class="author">Skrevet av ${article.author}</li>
+              <li><a href="${article.publicUrl}" title="Vis artikkel" class="lesmer">Les mer</a></li>
+	          <c:if test="${article.source != null}">
+	            <li><a href="${article.seeAlso}" title="Vis kilde" class="lesmer" target="_blank">
+	              <c:choose>
+	                <c:when test="${empty article.source}">Kilde</c:when>
+	                <c:otherwise>${article.source}</c:otherwise>
+	              </c:choose>
+	            </a></li>
+	          </c:if>          
+            </ul>
+        </div>
+
+</jsp:root>

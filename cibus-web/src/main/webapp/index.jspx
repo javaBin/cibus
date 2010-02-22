@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8"/>
+<jsp:useBean id="frontPage" type="no.java.portal.page.FrontJspBean" scope="application"/>
+<body>
+<h2>Forsiden</h2>
+<c:forEach var="article" items="${frontPage.articles}">
+  <h2>${article.title}</h2>
+  <p>${article.ingress}</p>
+</c:forEach>
+</body>
+</html>
