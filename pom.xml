@@ -125,9 +125,9 @@
   </dependencyManagement>
 
   <properties>
-    <spring-version>2.5.6</spring-version>
-    <jersey-version>1.0.3</jersey-version>
-    <constretto-version>1.0-rc-4</constretto-version>
+    <spring-version>2.5.6.SEC01</spring-version>
+    <jersey-version>1.1.5</jersey-version>
+    <constretto-version>1.0-rc-12</constretto-version>
     <encoding>UTF-8</encoding>
     <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
     <maven.compiler.encoding>${encoding}</maven.compiler.encoding>
