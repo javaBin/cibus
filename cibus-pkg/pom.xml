@@ -3,7 +3,7 @@
   <parent>
     <groupId>no.java.cibus</groupId>
     <artifactId>cibus</artifactId>
-    <version>1.0-alpha-1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>cibus-pkg</artifactId>
   <name>Cibus :: Solaris Package</name>
@@ -12,7 +12,7 @@
     <dependency>
       <groupId>no.java.cibus</groupId>
       <artifactId>cibus-web</artifactId>
-      <version>1.0-alpha-1-SNAPSHOT</version>
+      <version>${project.version}</version>
       <type>war</type>
     </dependency>
   </dependencies>
