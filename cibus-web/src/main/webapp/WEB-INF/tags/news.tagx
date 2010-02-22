@@ -12,7 +12,7 @@
         <div class="widecolumn">
             <h3><a href="${article.seeAlso}">${article.title}</a></h3>
 
-            <p class="author">${portal:toShortString(article.metadata.modified)}</p>
+            <p class="author">av ${article.author}, ${portal:toShortString(article.metadata.created)}</p>
 
             <p>${article.ingress}</p>
             <ul class="lesmer">
