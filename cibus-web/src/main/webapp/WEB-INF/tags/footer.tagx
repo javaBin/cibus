@@ -37,11 +37,11 @@
     <div class="wrapper">
       <div id="login">
       	<sec:authorize ifAnyGranted="ROLE_USER">
-		  <ul class="horiz">
-		  	<sec:authentication var="userName" property="principal.username" />
-		    <li><a title="Logg ut ${userName}" href="${pctx}/j_spring_security_logout">Logg ut</a></li>
-		    <li><a title="Rediger bruker" href="${pctx}/brukerkonto/rediger">Rediger</a></li>
-		  </ul>
+        <sec:authentication var="userName" property="principal"/>
+        <ul class="horiz">
+          <li><a title="Logg ut ${userName}" href="${pctx}/j_spring_security_logout">Logg ut</a></li>
+          <li><a title="Rediger bruker" href="${pctx}/brukerkonto/rediger">Rediger</a></li>
+        </ul>
       	</sec:authorize>
       	<sec:authorize ifNotGranted="ROLE_USER">
           <ul class="horiz">

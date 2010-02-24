@@ -17,6 +17,7 @@ alter sequence member_seq owned by member.membership_no;
 create table email_address(
     membership_no         integer,
     value                 varchar(100) not null,
+    index                 integer,
 --    verified_date         timestamp,
 --    verification_time     timestamp,
 --    verification_code     varchar(36),

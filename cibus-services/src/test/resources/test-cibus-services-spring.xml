@@ -15,7 +15,7 @@
     <property name="port" value="3025"/>
   </bean>
 
-  <bean id="greenMail" class="com.icegreen.greenmail.util.GreenMail" init-method="start" destroy-method="stop">
+  <bean id="greenMail" class="com.icegreen.greenmail.util.GreenMail" init-method="start" destroy-method="stop" lazy-init="true">
   </bean>
 
 </beans>

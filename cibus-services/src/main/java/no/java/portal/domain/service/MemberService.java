@@ -1,5 +1,6 @@
 package no.java.portal.domain.service;
 
+import no.java.portal.domain.*;
 import no.java.portal.domain.member.*;
 import no.java.portal.domain.member.Member.*;
 
@@ -21,7 +22,7 @@ public interface MemberService {
 //
 //    void mergeAccounts(MembershipNo membershipA, MembershipNo membershipB);
 
-    void resetPasswordRequest(MembershipNo no);
+    void resetPasswordRequest(MembershipNo no) throws UserNotFoundException;
 
     void resetPassword(MembershipNo no, UUID uuid);
 }

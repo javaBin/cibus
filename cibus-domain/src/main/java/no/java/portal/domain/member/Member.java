@@ -1,15 +1,14 @@
 package no.java.portal.domain.member;
 
 import fj.*;
-import fj.data.*;
+import fj.Function;
 import fj.data.List;
-import static fj.data.List.single;
-import static fj.data.Option.some;
-import static java.lang.String.valueOf;
-import no.java.portal.domain.*;
+import static fj.data.List.*;
+import fj.data.*;
+import fj.pre.*;
+import static java.lang.String.*;
 import org.joda.time.*;
 
-import java.sql.*;
 import java.util.*;
 
 /**
@@ -22,49 +21,54 @@ public class Member {
     public final String lastName;
     public final DateTime created;
     public final Option<DateTime> lastUpdated;
-    public final Option<UUID> resetPasswordUuid;
     public final List<EmailAddress> emails;
 
-    private Member(MembershipNo no, String firstName, String lastName, DateTime created, Option<DateTime> lastUpdated,
-                   Option<UUID> resetPasswordUuid, List<EmailAddress> emails) {
+    private Member(MembershipNo no,
+                   String firstName, String lastName,
+                   DateTime created, Option<DateTime> lastUpdated,
+                   List<EmailAddress> emails) {
         this.no = no;
         this.firstName = firstName;
         this.lastName = lastName;
         this.lastUpdated = lastUpdated;
-        this.resetPasswordUuid = resetPasswordUuid;
         this.emails = emails;
         this.created = created;
     }
 
     public Member setId(MembershipNo membershipNo) {
-        return new Member(membershipNo, firstName, lastName, created, lastUpdated, resetPasswordUuid, emails);
-    }
-
-    public Member resetPassword(UuidGenerator uuidGenerator) {
-        return new Member(no, firstName, lastName, created, lastUpdated, some(uuidGenerator.get()), emails);
+        return new Member(membershipNo, firstName, lastName, created, lastUpdated, emails);
     }
 
     public EmailAddress getPrimaryEmail() {
         return emails.head();
     }
 
+    public String getDisplayName() {
+        return firstName + " " + lastName;
+    }
+
     /**
      * Creates a 'new' member with membership no = 0.
      */
     public static Member createNewMember(String firstName, String lastName, EmailAddress emailAddress) {
-        return new Member(MembershipNo.membershipId(0), firstName, lastName, new DateTime(), null, null, single(emailAddress));
+        return new Member(MembershipNo.membershipNo(0), firstName, lastName, new DateTime(), Option.<DateTime>none(), single(emailAddress));
     }
 
-    public static Member fromResultSet(ResultSet rs, List<EmailAddress> emailAddresses) throws SQLException {
+    public static Member fromDatabase(MembershipNo membershipNo, String firstName, String lastName,
+                                      DateTime created, Option<DateTime> lastUpdated,
+                                      List<EmailAddress> emailAddresses) {
         return new Member(
-                MembershipNo.membershipId(rs.getInt("membership_id")),
-                rs.getString("first_name"),
-                rs.getString("last_name"),
-                new DateTime(rs.getTimestamp("created").getTime()),
-                rs.getTimestamp("last_updated") != null ? some(new DateTime(rs.getTimestamp("last_updated").getTime())) : Option.<DateTime>none(),
-                rs.getString("reset_password_uuid") != null ? some(UUID.fromString(rs.getString("reset_password_uuid"))) : Option.<UUID>none(),
+                membershipNo,
+                firstName, lastName,
+                created, lastUpdated,
                 emailAddresses);
     }
+
+    public static final F<Member, MembershipNo> membershipNo = new F<Member, MembershipNo>() {
+        public MembershipNo f(Member member) {
+            return member.no;
+        }
+    };
 
     // -----------------------------------------------------------------------
     //
@@ -77,13 +81,32 @@ public class Member {
             this.value = value;
         }
 
-        public static MembershipNo membershipId(int value) {
+        public static MembershipNo membershipNo(int value) {
             return new MembershipNo(value);
         }
 
         @Override
         public String toString() {
             return valueOf(value);
+        }
+
+        public int toInteger() {
+            return value;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof MembershipNo)) return false;
+
+            MembershipNo that = (MembershipNo) o;
+
+            return value == that.value;
+        }
+
+        @Override
+        public int hashCode() {
+            return value;
         }
     }
 
@@ -103,10 +126,16 @@ public class Member {
             return value;
         }
 
-        public static F<String, EmailAddress> emailAddress = new F<String, EmailAddress>() {
+        public static final F<String, EmailAddress> emailAddress = new F<String, EmailAddress>() {
             public EmailAddress f(String s) {
                 return new EmailAddress(s);
             }
         };
+
+        public static final Equal<EmailAddress> equal = Equal.equal(Function.curry(new F2<EmailAddress, EmailAddress, Boolean>() {
+            public Boolean f(EmailAddress a, EmailAddress b) {
+                return a.value.equals(b.value);
+            }
+        }));
     }
 }
