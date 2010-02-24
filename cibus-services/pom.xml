@@ -74,7 +74,7 @@
     </dependency>
     <dependency>
       <groupId>org.constretto</groupId>
-      <artifactId>constretto-test</artifactId>
+      <artifactId>constretto-test-junit-4.5 </artifactId>
       <version>${constretto-version}</version>
       <scope>test</scope>
     </dependency>

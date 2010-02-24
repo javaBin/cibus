@@ -5,6 +5,7 @@ import fj.data.*;
 import static fj.data.List.*;
 import no.java.portal.domain.member.*;
 import no.java.portal.domain.member.Member.*;
+import static no.java.portal.domain.member.Member.MembershipNo.membershipId;
 import org.springframework.beans.factory.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.jdbc.core.*;
@@ -24,13 +25,11 @@ public class MemberDao implements InitializingBean {
     private final static String MEMBER_FIELDS = "membership_id, first_name, last_name";
 
     private final JdbcTemplate jdbcTemplate;
-    private final SimpleJdbcTemplate simpleJdbcTemplate;
     private final SimpleJdbcInsert insertMember;
 
     @Autowired
     public MemberDao(@Qualifier("cibusDataSource") DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
-        this.simpleJdbcTemplate = new SimpleJdbcTemplate(dataSource);
 
         this.insertMember = new SimpleJdbcInsert(dataSource).
                 withTableName("member").
@@ -54,12 +53,22 @@ public class MemberDao implements InitializingBean {
     }
 
     public Member select(MembershipNo membershipNo) {
-        @SuppressWarnings({"unchecked"}) List<String> stringList =
-                (List<String>) jdbcTemplate.queryForList("select email_address where membership_id=?", new Object[]{membershipNo.toString()});
-
-        List<EmailAddress> emailAddresses = iterableList(stringList).
+        List<EmailAddress> emailAddresses = iterableList(
+                jdbcTemplate.queryForList("select email_address where membership_id=?", String.class, membershipNo.toString())).
                 map(EmailAddress.emailAddress);
-        return simpleJdbcTemplate.queryForObject("select " + MEMBER_FIELDS + " from member where membership_id=?", mapper.f(emailAddresses), membershipNo.toString());
+        return jdbcTemplate.queryForObject("select " + MEMBER_FIELDS + " from member where membership_id=?", mapper.f(emailAddresses), membershipNo.toString());
+    }
+
+    public MembershipNo findMemberByEmail(EmailAddress emailAddress) {
+        String sql = "select membership_no from email_address where value=?";
+
+        return membershipId(jdbcTemplate.queryForInt(sql, emailAddress));
+    }
+
+    public boolean checkPassword(MembershipNo membershipNo, String password) {
+        String sql = "select count(membership_no) from member where password=? and membership_no=?";
+
+        return jdbcTemplate.queryForInt(sql, password, membershipNo.toString()) > 0;
     }
 
     // -----------------------------------------------------------------------

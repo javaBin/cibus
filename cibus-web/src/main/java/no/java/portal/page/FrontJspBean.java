@@ -10,8 +10,8 @@ import no.java.portal.domain.*;
 
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.Authentication;
-import org.springframework.security.context.SecurityContextHolder;
+import org.springframework.security.core.*;
+import org.springframework.security.core.context.*;
 import org.springframework.stereotype.Component;
 
 /**
@@ -91,5 +91,4 @@ public class FrontJspBean implements JspBean {
             throw new RuntimeException("Error getting user", e);
         }
     }
-
 }

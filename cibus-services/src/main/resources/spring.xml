@@ -39,16 +39,21 @@
     <property name="port" value="${mail.port}"/>
   </bean>
 
+<!--
   <bean id="mailFrom" class="javax.mail.internet.InternetAddress">
     <constructor-arg value="${mail.from}"/>
   </bean>
+-->
 
   <bean id="newAccountTemplate" class="org.springframework.mail.javamail.MimeMessageHelper">
     <constructor-arg>
       <bean factory-bean="mailSender" factory-method="createMimeMessage"/>
     </constructor-arg>
     <property name="subject" value="Ny bruker"/>
-    <property name="from" ref="mailFrom"/>
+<!--
+    <property name="from" ref="${mail.from}"/>
+-->
+    <property name="from" value="${mail.from}"/>
   </bean>
 
   <bean id="resetPasswordTemplate" class="org.springframework.mail.javamail.MimeMessageHelper">
@@ -56,7 +61,10 @@
       <bean factory-bean="mailSender" factory-method="createMimeMessage"/>
     </constructor-arg>
     <property name="subject" value="Nytt passord for javaBin"/>
-    <property name="from" ref="mailFrom"/>
+<!--
+    <property name="from" ref="${mail.from}"/>
+-->
+    <property name="from" value="${mail.from}"/>
   </bean>
 
   <!--

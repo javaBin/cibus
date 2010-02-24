@@ -73,7 +73,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.4</version>
+      <version>4.5</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -125,7 +125,8 @@
   </dependencyManagement>
 
   <properties>
-    <spring-version>2.5.6.SEC01</spring-version>
+    <spring-version>3.0.1.RELEASE</spring-version>
+    <spring-security-version>3.0.2.RELEASE</spring-security-version>
     <jersey-version>1.1.5</jersey-version>
     <constretto-version>1.0-rc-12</constretto-version>
     <encoding>UTF-8</encoding>
