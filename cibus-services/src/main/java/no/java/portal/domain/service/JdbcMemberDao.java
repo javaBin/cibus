@@ -20,7 +20,6 @@ import org.springframework.stereotype.*;
 import javax.sql.*;
 import java.sql.*;
 import java.util.HashMap;
-import java.util.*;
 
 /**
  * @author <a href="mailto:trygvis@java.no">Trygve Laugst&oslash;l</a>
@@ -34,8 +33,8 @@ public class JdbcMemberDao implements InitializingBean, MemberDao {
     private final JdbcTemplate jdbcTemplate;
     private final SimpleJdbcInsert insertMember;
     private final SqlUpdate updateMember;
-    private final SimpleJdbcInsert insertEmail;
-    private final SqlUpdate deleteEmailsForMemberNo;
+    private final SimpleJdbcInsert insertMailAddress;
+    private final SqlUpdate deleteMailAddressForMemberNo;
 
     @Autowired
     public JdbcMemberDao(@Qualifier("cibusDataSource") DataSource dataSource) {
@@ -46,9 +45,9 @@ public class JdbcMemberDao implements InitializingBean, MemberDao {
                 usingGeneratedKeyColumns("membership_no");
         this.updateMember = new SqlUpdate(dataSource, "update member set first_name=?, last_name=? where membership_no=?");
 
-        this.insertEmail = new SimpleJdbcInsert(dataSource).
-                withTableName("email_address");
-        this.deleteEmailsForMemberNo = new SqlUpdate(dataSource, "delete from email_address where membership_no=?");
+        this.insertMailAddress = new SimpleJdbcInsert(dataSource).
+                withTableName("member_mail_address");
+        this.deleteMailAddressForMemberNo = new SqlUpdate(dataSource, "delete from member_mail_address where membership_no=?");
     }
 
     public void afterPropertiesSet() throws Exception {
@@ -60,9 +59,9 @@ public class JdbcMemberDao implements InitializingBean, MemberDao {
     // -----------------------------------------------------------------------
 
     public long insert(final Member member) {
-        member.emails.zipIndex().foreach(new Effect<P2<EmailAddress, Integer>>() {
-            public void e(final P2<EmailAddress, Integer> p2) {
-                insertEmail.execute(new HashMap<String, Object>() {{
+        member.mailAddresses.zipIndex().foreach(new Effect<P2<MailAddress, Integer>>() {
+            public void e(final P2<MailAddress, Integer> p2) {
+                insertMailAddress.execute(new HashMap<String, Object>() {{
                     put("value", p2._1().toString());
                     put("index", p2._2());
                 }});
@@ -81,21 +80,21 @@ public class JdbcMemberDao implements InitializingBean, MemberDao {
     }
 
     public Option<Member> select(MembershipNo membershipNo) {
-        List<EmailAddress> emailAddresses = iterableList(
-                jdbcTemplate.queryForList("select value from email_address where membership_no=? order by index", String.class, membershipNo.toInteger())).
-                map(EmailAddress.emailAddress);
+        List<MailAddress> mailAddresses = iterableList(
+                jdbcTemplate.queryForList("select value from member_mail_address where membership_no=? order by index", String.class, membershipNo.toInteger())).
+                map(MailAddress.mailAddress);
         try {
-            return some(jdbcTemplate.queryForObject("select " + MEMBER_FIELDS + " from member where membership_no=?", mapper.f(emailAddresses), membershipNo.toInteger()));
+            return some(jdbcTemplate.queryForObject("select " + MEMBER_FIELDS + " from member where membership_no=?", mapper.f(mailAddresses), membershipNo.toInteger()));
         } catch (IncorrectResultSizeDataAccessException e) {
             return none();
         }
     }
 
-    public Option<MembershipNo> findMemberByEmail(EmailAddress emailAddress) {
-        String sql = "select membership_no from email_address where value=?";
+    public Option<MembershipNo> findMemberByMailAddress(MailAddress mailAddress) {
+        String sql = "select membership_no from member_mail_address where value=?";
 
         try {
-            return some(membershipNo(jdbcTemplate.queryForInt(sql, emailAddress.toString())));
+            return some(membershipNo(jdbcTemplate.queryForInt(sql, mailAddress.toString())));
         } catch (IncorrectResultSizeDataAccessException e) {
             return none();
         }
@@ -111,8 +110,8 @@ public class JdbcMemberDao implements InitializingBean, MemberDao {
     //
     // -----------------------------------------------------------------------
 
-    F<List<EmailAddress>, ParameterizedRowMapper<Member>> mapper = new F<List<EmailAddress>, ParameterizedRowMapper<Member>>() {
-        public ParameterizedRowMapper<Member> f(final List<EmailAddress> emailAddresses) {
+    F<List<MailAddress>, ParameterizedRowMapper<Member>> mapper = new F<List<MailAddress>, ParameterizedRowMapper<Member>>() {
+        public ParameterizedRowMapper<Member> f(final List<MailAddress> mailAddresses) {
             return new ParameterizedRowMapper<Member>() {
                 public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
                     return Member.fromDatabase(
@@ -121,7 +120,7 @@ public class JdbcMemberDao implements InitializingBean, MemberDao {
                             rs.getString("last_name"),
                             new DateTime(rs.getTimestamp("created").getTime()),
                             rs.getTimestamp("last_updated") != null ? some(new DateTime(rs.getTimestamp("last_updated").getTime())) : Option.<DateTime>none(),
-                            emailAddresses);
+                            mailAddresses);
                 }
             };
         }

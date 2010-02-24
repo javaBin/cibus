@@ -21,47 +21,51 @@ public class Member {
     public final String lastName;
     public final DateTime created;
     public final Option<DateTime> lastUpdated;
-    public final List<EmailAddress> emails;
+    public final List<MailAddress> mailAddresses;
 
     private Member(MembershipNo no,
                    String firstName, String lastName,
                    DateTime created, Option<DateTime> lastUpdated,
-                   List<EmailAddress> emails) {
+                   List<MailAddress> mailAddresses) {
         this.no = no;
         this.firstName = firstName;
         this.lastName = lastName;
         this.lastUpdated = lastUpdated;
-        this.emails = emails;
+        this.mailAddresses = mailAddresses;
         this.created = created;
     }
 
     public Member setId(MembershipNo membershipNo) {
-        return new Member(membershipNo, firstName, lastName, created, lastUpdated, emails);
+        return new Member(membershipNo, firstName, lastName, created, lastUpdated, mailAddresses);
     }
 
-    public EmailAddress getPrimaryEmail() {
-        return emails.head();
+    public MailAddress getPrimaryMailAddress() {
+        return mailAddresses.head();
     }
 
     public String getDisplayName() {
         return firstName + " " + lastName;
     }
 
+    public Collection<MailAddress> getMailAddressesAsCollection() {
+        return mailAddresses.toCollection();
+    }
+
     /**
      * Creates a 'new' member with membership no = 0.
      */
-    public static Member createNewMember(String firstName, String lastName, EmailAddress emailAddress) {
-        return new Member(MembershipNo.membershipNo(0), firstName, lastName, new DateTime(), Option.<DateTime>none(), single(emailAddress));
+    public static Member createNewMember(String firstName, String lastName, MailAddress mailAddress) {
+        return new Member(MembershipNo.membershipNo(0), firstName, lastName, new DateTime(), Option.<DateTime>none(), single(mailAddress));
     }
 
     public static Member fromDatabase(MembershipNo membershipNo, String firstName, String lastName,
                                       DateTime created, Option<DateTime> lastUpdated,
-                                      List<EmailAddress> emailAddresses) {
+                                      List<MailAddress> mailAddresses) {
         return new Member(
                 membershipNo,
                 firstName, lastName,
                 created, lastUpdated,
-                emailAddresses);
+                mailAddresses);
     }
 
     public static final F<Member, MembershipNo> membershipNo = new F<Member, MembershipNo>() {
@@ -110,15 +114,15 @@ public class Member {
         }
     }
 
-    public static class EmailAddress {
+    public static class MailAddress {
         private final String value;
 
-        private EmailAddress(String value) {
+        private MailAddress(String value) {
             this.value = value;
         }
 
-        public static EmailAddress emailAddress(String value) {
-            return new EmailAddress(value);
+        public static MailAddress mailAddress(String value) {
+            return new MailAddress(value);
         }
 
         @Override
@@ -126,14 +130,14 @@ public class Member {
             return value;
         }
 
-        public static final F<String, EmailAddress> emailAddress = new F<String, EmailAddress>() {
-            public EmailAddress f(String s) {
-                return new EmailAddress(s);
+        public static final F<String, MailAddress> mailAddress = new F<String, MailAddress>() {
+            public MailAddress f(String s) {
+                return new MailAddress(s);
             }
         };
 
-        public static final Equal<EmailAddress> equal = Equal.equal(Function.curry(new F2<EmailAddress, EmailAddress, Boolean>() {
-            public Boolean f(EmailAddress a, EmailAddress b) {
+        public static final Equal<MailAddress> equal = Equal.equal(Function.curry(new F2<MailAddress, MailAddress, Boolean>() {
+            public Boolean f(MailAddress a, MailAddress b) {
                 return a.value.equals(b.value);
             }
         }));

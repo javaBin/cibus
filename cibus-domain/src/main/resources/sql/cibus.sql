@@ -14,14 +14,14 @@ create table member(
 );
 alter sequence member_seq owned by member.membership_no;
 
-create table email_address(
+create table member_mail_address(
     membership_no         integer,
     value                 varchar(100) not null,
     index                 integer,
 --    verified_date         timestamp,
 --    verification_time     timestamp,
 --    verification_code     varchar(36),
-    constraint email_address_pk primary key (value),
+    constraint member_mail_address_pk primary key (value),
     constraint membership_member foreign key (membership_no) references member(membership_no)
 );
 

@@ -6,36 +6,35 @@
       xmlns:portal="http://tags.java.no/portal"
       xmlns:parts="urn:jsptagdir:/WEB-INF/tags"
       xmlns:jsp="http://java.sun.com/JSP/Page">
-<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8" />
-<jsp:useBean id="frontJspBean" type="no.java.portal.page.FrontJspBean" scope="application" />
+<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8"/>
+<jsp:useBean id="frontJspBean" type="no.java.portal.page.FrontJspBean" scope="application"/>
+<jsp:useBean id="userAccountJspBean" type="no.java.portal.page.UserAccountJspBean" scope="application"/>
 <head><title>javaBin - Brukerinnstillinger</title></head>
 <body>
 <div id="frontPage_news">
   <div class="wrapper">
     <div class="leftarea">
       <h2>Brukerinnstillinger</h2>
-      <c:set var="user" value="${frontJspBean.currentUser}" />
-      <form id="editUserForm" action="${pageContext.request.contextPath}/rest/user" method="post">
-      <c:forEach var="subscribedCategory" items="${user.subscribedCategories}" >
-      <p><parts:checkbox name="category.${subscribedCategory.categoryId}" value="${subscribedCategory.selected}" description="${subscribedCategory.description}" /></p>
-      </c:forEach>
-      <p>
-      	E-postadresse: <input id="formEMail" type="text" name="email" value="${user.email}"/> 
-      </p>
-      <input type="submit" value="Lagre" />
-      <p class="formError">
-      </p>
-      <p class="formSuccess">
-        Brukerinnstillinger oppdatert!
-      </p>
-      </form>
+      <c:set var="member" value="${userAccountJspBean.member}"/>
+
+      <ul>
+        <li>Navn: ${member.displayName}</li>
+        <li>Registrerte epostadresser:
+          <ul>
+            <c:forEach var="mailAddress" items="${member.mailAddressesAsCollection}">
+              <li>${mailAddress}</li>
+            </c:forEach>
+          </ul>
+        </li>
+      </ul>
+
     </div>
 
     <div class="announcements">
-      <parts:tipsLenke />
-	  <parts:sokeFelt />
-      <parts:goldPartnerList />
-      <parts:javaBinTweets />
+      <parts:tipsLenke/>
+      <parts:sokeFelt/>
+      <parts:goldPartnerList/>
+      <parts:javaBinTweets/>
     </div>
   </div>
 </div>

@@ -41,7 +41,7 @@ public class DefaultMemberMailSender implements MemberMailSender {
     public void sendNewAccountEmail(Member member) throws IOException {
         MimeMailMessage mailMsg = new MimeMailMessage(newAccountTemplate);
         String message = MessageFormat.format(newAccountText, member.no, member.firstName, member.lastName);
-        EmailAddress recipient = member.getPrimaryEmail();
+        MailAddress recipient = member.getPrimaryMailAddress();
 
         logger.debug("Sending new account email to " + member.no + "/" + recipient);
         mailMsg.setText(message);

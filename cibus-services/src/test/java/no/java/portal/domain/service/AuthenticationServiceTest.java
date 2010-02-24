@@ -8,7 +8,7 @@ import fj.pre.*;
 import static junit.framework.Assert.*;
 import no.java.portal.domain.member.*;
 import no.java.portal.domain.member.Member.*;
-import static no.java.portal.domain.member.Member.EmailAddress.*;
+import static no.java.portal.domain.member.Member.MailAddress.*;
 import static no.java.portal.domain.member.Member.MembershipNo.*;
 import no.java.portal.domain.service.AuthenticationService.*;
 import org.constretto.test.*;
@@ -16,8 +16,6 @@ import org.joda.time.*;
 import org.junit.*;
 import org.junit.runner.*;
 import org.springframework.test.context.*;
-
-import java.util.*;
 
 /**
  * @author <a href="mailto:trygvis@java.no">Trygve Laugst&oslash;l</a>
@@ -32,8 +30,8 @@ public class AuthenticationServiceTest {
         final HashMap<MembershipNo, Member> members = new HashMap<MembershipNo, Member>(Equal.<MembershipNo>anyEqual(), Hash.<MembershipNo>anyHash());
         final HashMap<MembershipNo, String> passwords = new HashMap<MembershipNo, String>(Equal.<MembershipNo>anyEqual(), Hash.<MembershipNo>anyHash());
 
-        EmailAddress fooAtBarCom = emailAddress("foo@bar.com");
-        EmailAddress failAtBarCom = emailAddress("fail@bar.com");
+        MailAddress fooAtBarCom = mailAddress("foo@bar.com");
+        MailAddress failAtBarCom = mailAddress("fail@bar.com");
 
         MembershipNo membershipNo = membershipNo(1);
         members.set(membershipNo, Member.fromDatabase(membershipNo, "first", "last", new DateTime(), Option.<DateTime>none(), List.single(fooAtBarCom)));
@@ -75,10 +73,10 @@ public class AuthenticationServiceTest {
             return members.get(membershipNo);
         }
 
-        public Option<MembershipNo> findMemberByEmail(final EmailAddress emailAddress) {
+        public Option<MembershipNo> findMemberByMailAddress(final MailAddress mailAddress) {
             return members.values().find(new F<Member, Boolean>() {
                 public Boolean f(Member member) {
-                    return member.emails.find(EmailAddress.equal.eq(emailAddress)).isSome();
+                    return member.mailAddresses.find(MailAddress.equal.eq(mailAddress)).isSome();
                 }
             }).map(Member.membershipNo);
         }

@@ -15,7 +15,7 @@ public interface MemberDao {
 
     Option<Member> select(MembershipNo membershipNo);
 
-    Option<MembershipNo> findMemberByEmail(EmailAddress emailAddress);
+    Option<MembershipNo> findMemberByMailAddress(MailAddress mailAddress);
 
     boolean checkPassword(MembershipNo membershipNo, String password);
 }

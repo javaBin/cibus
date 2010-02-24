@@ -1,18 +1,11 @@
 package no.java.portal.page;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-
 import no.java.portal.domain.*;
+import org.joda.time.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.*;
 
-import org.joda.time.DateTime;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.*;
-import org.springframework.security.core.context.*;
-import org.springframework.stereotype.Component;
+import java.util.*;
 
 /**
  * @author <a href="mailto:trygvis@java.no">Trygve Laugst&oslash;l</a>
@@ -21,18 +14,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class FrontJspBean implements JspBean {
 
-    private static final List<Category> PARTNER_CATEGORIES = Arrays.asList(Category.nyheter_partnere, Category.partnerinfo,
+    private static final List<Category> PARTNER_CATEGORIES = Arrays.asList(
+            Category.nyheter_partnere,
+            Category.partnerinfo,
             Category.stillingsannonser);
     private final Articles articles;
     private final ArticleMetadatas articleMetadatas;
-    private final Users users;
     private final MemberPeople memberPeople;
 
     @Autowired
-    public FrontJspBean(Articles articles, ArticleMetadatas articleMetadatas, Users users, MemberPeople memberPeople) {
+    public FrontJspBean(Articles articles, ArticleMetadatas articleMetadatas, MemberPeople memberPeople) {
         this.articles = articles;
         this.articleMetadatas = articleMetadatas;
-        this.users = users;
         this.memberPeople = memberPeople;
     }
 
@@ -81,14 +74,5 @@ public class FrontJspBean implements JspBean {
         months.put(11, "nov");
         months.put(12, "des");
         return months;
-    }
-
-    public User getCurrentUser() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        try {
-            return users.getUser(auth.getName());
-        } catch (UserNotFoundException e) {
-            throw new RuntimeException("Error getting user", e);
-        }
     }
 }

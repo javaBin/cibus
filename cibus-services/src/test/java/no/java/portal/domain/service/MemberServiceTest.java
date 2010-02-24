@@ -3,7 +3,7 @@ package no.java.portal.domain.service;
 import com.icegreen.greenmail.util.*;
 import static junit.framework.Assert.*;
 import no.java.portal.domain.member.*;
-import static no.java.portal.domain.member.Member.EmailAddress.*;
+import static no.java.portal.domain.member.Member.MailAddress.*;
 import org.constretto.test.*;
 import org.junit.*;
 import org.junit.runner.*;
@@ -35,7 +35,7 @@ public class MemberServiceTest {
 
         logger.info("yo");
 
-        Member member = Member.createNewMember("Trygve", "Laugstol", emailAddress("foo@bar.com"));
+        Member member = Member.createNewMember("Trygve", "Laugstol", mailAddress("foo@bar.com"));
 
         Member savedMember = memberService.addMember(member);
 

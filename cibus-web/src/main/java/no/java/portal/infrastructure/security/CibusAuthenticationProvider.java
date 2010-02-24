@@ -1,7 +1,7 @@
 package no.java.portal.infrastructure.security;
 
 import no.java.portal.domain.member.Member.*;
-import static no.java.portal.domain.member.Member.EmailAddress.*;
+import static no.java.portal.domain.member.Member.MailAddress.*;
 import no.java.portal.domain.service.*;
 import no.java.portal.domain.service.AuthenticationService.*;
 import org.slf4j.*;
@@ -39,12 +39,14 @@ public class CibusAuthenticationProvider implements AuthenticationProvider {
         UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken) authentication;
 
         String password = (String) authentication.getCredentials();
-        EmailAddress emailAddress = emailAddress((String) token.getPrincipal());
+        MailAddress mailAddress = mailAddress((String) token.getPrincipal());
 
-        CibusAuthentication cibusAuthentication = authenticationService.isAuthenticated(emailAddress, password);
+        CibusAuthentication cibusAuthentication = authenticationService.isAuthenticated(mailAddress, password);
 
         if (cibusAuthentication.member.isSome()) {
-            return new UsernamePasswordAuthenticationToken(emailAddress.toString(), password, authorities);
+            token = new UsernamePasswordAuthenticationToken(mailAddress.toString(), password, authorities);
+            token.setDetails(cibusAuthentication.member.some());
+            return token;
         } else {
             return authentication;
         }

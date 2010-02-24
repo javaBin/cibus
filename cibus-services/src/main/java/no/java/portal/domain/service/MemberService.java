@@ -16,13 +16,15 @@ public interface MemberService {
 
     void updateMember(Member member);
 
-    void addEmail(MembershipNo membershipNo, EmailAddress emailAddress);
+    void addMailAddress(MembershipNo membershipNo, MailAddress mailAddress);
 
-//    void verifyEmail(MembershipNo no, EmailAddress emailAddress, String code);
+//    void verifyEmail(MembershipNo no, MailAddress mailAddress, String code);
 //
 //    void mergeAccounts(MembershipNo membershipA, MembershipNo membershipB);
 
     void resetPasswordRequest(MembershipNo no) throws UserNotFoundException;
 
     void resetPassword(MembershipNo no, UUID uuid);
+
+    Member getMember(MembershipNo membershipNo);
 }

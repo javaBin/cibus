@@ -33,11 +33,11 @@ public class AuthenticationService {
 
     public static final CibusAuthentication failedAuthentication = new CibusAuthentication(Option.<Member>none());
 
-    public CibusAuthentication isAuthenticated(EmailAddress email, String password) {
-        Option<MembershipNo> membershipNoOption = memberDao.findMemberByEmail(email);
+    public CibusAuthentication isAuthenticated(MailAddress mail, String password) {
+        Option<MembershipNo> membershipNoOption = memberDao.findMemberByMailAddress(mail);
 
         if (membershipNoOption.isNone()) {
-            logger.info("Failed authentication for email '" + email + "': No such email");
+            logger.info("Failed authentication for mail '" + mail + "': No such mail");
 
             return failedAuthentication;
         }
@@ -46,13 +46,13 @@ public class AuthenticationService {
         boolean authenticated = memberDao.checkPassword(membershipNo, password);
 
         if (!authenticated) {
-            logger.info("Failed authentication for email '" + email + "': invalid password");
+            logger.info("Failed authentication for mail '" + mail + "': invalid password");
             return failedAuthentication;
         }
 
         Member member = memberDao.select(membershipNo).some();
 
-        logger.info("Authenticated '" + member.getDisplayName() + "' using email address '" + email + ".");
+        logger.info("Authenticated '" + member.getDisplayName() + "' using mail address '" + mail + ".");
 
         return new CibusAuthentication(memberDao.select(membershipNo));
     }

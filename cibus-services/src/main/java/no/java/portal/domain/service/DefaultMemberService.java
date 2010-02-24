@@ -47,7 +47,7 @@ public class DefaultMemberService implements MemberService {
         throw new RuntimeException("Not implemented");
     }
 
-    public void addEmail(MembershipNo membershipNo, EmailAddress emailAddress) {
+    public void addMailAddress(MembershipNo membershipNo, MailAddress mailAddress) {
         throw new RuntimeException("Not implemented");
     }
 
@@ -68,5 +68,9 @@ public class DefaultMemberService implements MemberService {
 
     public void resetPassword(MembershipNo no, UUID uuid) {
         throw new RuntimeException("Not implemented");
+    }
+
+    public Member getMember(MembershipNo membershipNo) {
+        return memberDao.select(membershipNo).some();
     }
 }
