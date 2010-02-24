@@ -619,7 +619,7 @@ h3 a {
     font-size: 0.9em;
 }
 
-/* Separate Les mer link */
+/* Separate "Les mer" link */
 #frontPage_news .standalone:first-child {
     border-top: 40px solid #fff;
 }
@@ -1092,4 +1092,24 @@ h3 a {
 ul#tweets {
     list-style-type: none;
     padding: 0 0 0 0;
+}
+
+/*
+ * Archive
+ */
+ul#archiveMonths {
+  overflow: auto;
+  width: 100%;
+}
+
+ul#archiveMonths > li {
+  list-style: none;
+
+  float: left;
+}
+
+ul#archiveMonths > li > a {
+  font-size: 1em;
+
+  padding-right: 1em;
 }
