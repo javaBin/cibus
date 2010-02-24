@@ -1,6 +1,6 @@
 package no.java.portal.domain;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -22,7 +22,7 @@ public class MemberCompaniesImpl implements MemberCompanies {
     private final SimpleJdbcTemplate template;
 
     @Autowired
-    public MemberCompaniesImpl(DataSource dataSource) {
+    public MemberCompaniesImpl(@Qualifier("onpDataSource") DataSource dataSource) {
         this.template = new SimpleJdbcTemplate(dataSource);
     }
 
@@ -41,5 +41,4 @@ public class MemberCompaniesImpl implements MemberCompanies {
         }
         return companyMap;
     }
-
 }

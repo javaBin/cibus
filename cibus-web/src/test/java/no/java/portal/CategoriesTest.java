@@ -1,13 +1,12 @@
 package no.java.portal;
 
-import no.java.portal.domain.Categories;
-
-import org.constretto.annotation.Tags;
-import org.constretto.test.ConstrettoSpringJUnit4ClassRunner;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
+import no.java.portal.domain.*;
+import org.constretto.annotation.*;
+import org.constretto.test.*;
+import org.junit.*;
+import org.junit.runner.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.test.context.*;
 
 /**
  * @author <a href="mailto:thor.aage.eldby@arktekk.no">Thor &Aring;ge Eldby</a>
@@ -15,26 +14,26 @@ import org.springframework.test.context.ContextConfiguration;
  */
 @Tags("dev")
 @RunWith(ConstrettoSpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/spring.xml" })
+@ContextConfiguration(locations = {"classpath*:spring.xml"})
 public class CategoriesTest {
 
-	@Autowired
-	Categories categories;
+    @Autowired
+    Categories categories;
 
-	@Test
-	public void test() {
-		// List<CategoryDetails> all = new ArrayList<CategoryDetails>(categories
-		// .getSubscribable());
-		// Collections.sort(all, new Comparator<CategoryDetails>() {
-		// public int compare(CategoryDetails o1, CategoryDetails o2) {
-		// return o1.getCategoryId() - o2.getCategoryId();
-		// }
-		// });
-		// System.err.println("Count: " + all.size());
-		// for (CategoryDetails cat : all) {
-		// System.err.println("Category id: " + cat.getCategoryId()
-		// + ", description: " + cat.getDescription());
-		// }
-	}
+    @Test
+    public void test() {
+        // List<CategoryDetails> all = new ArrayList<CategoryDetails>(categories
+        // .getSubscribable());
+        // Collections.sort(all, new Comparator<CategoryDetails>() {
+        // public int compare(CategoryDetails o1, CategoryDetails o2) {
+        // return o1.getCategoryId() - o2.getCategoryId();
+        // }
+        // });
+        // System.err.println("Count: " + all.size());
+        // for (CategoryDetails cat : all) {
+        // System.err.println("Category id: " + cat.getCategoryId()
+        // + ", description: " + cat.getDescription());
+        // }
+    }
 
 }

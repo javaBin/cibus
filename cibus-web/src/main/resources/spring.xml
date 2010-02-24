@@ -5,36 +5,29 @@
        xmlns:sec="http://www.springframework.org/schema/security"
        xmlns:util="http://www.springframework.org/schema/util"
        xmlns:constretto="http://constretto.org/schema/constretto"
-  xsi:schemaLocation="
+       xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.4.xsd
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
        http://constretto.org/schema/constretto http://constretto.org/schema/constretto/constretto-1.2.xsd">
 
-  <context:component-scan base-package="no.java.portal" />
-
-  <bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
-    <property name="driverClassName" value="${onp.jdbc.driver}" />
-    <property name="url" value="${onp.jdbc.url}" />
-    <property name="username" value="${onp.jdbc.username}" />
-    <property name="password" value="${onp.jdbc.password}" />
-  </bean>
+  <context:component-scan base-package="no.java.portal"/>
 
   <bean id="twitterJavaBinSearchFeedUpdater" class="no.java.portal.infrastructure.TwitterJavaBinSearchFeedUpdater">
-    <constructor-arg ref="org.apache.abdera.Abdera" />
+    <constructor-arg ref="org.apache.abdera.Abdera"/>
     <constructor-arg>
       <bean class="java.net.URL">
-        <constructor-arg value="${twitter.search}/?q=javabin" />
+        <constructor-arg value="${twitter.search}/?q=javabin"/>
       </bean>
     </constructor-arg>
-    <constructor-arg ref="twitter" />
+    <constructor-arg ref="twitter"/>
   </bean>
 
   <bean id="forumFeedUpdater" class="no.java.portal.infrastructure.FeedUpdater">
     <constructor-arg>
       <bean class="java.net.URL">
-        <constructor-arg value="${rss.forum}" />
+        <constructor-arg value="${rss.forum}"/>
       </bean>
     </constructor-arg>
   </bean>
@@ -56,28 +49,28 @@
   <bean id="twitterJavaBinSearchFeedTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail">
       <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-        <property name="targetObject" ref="twitterJavaBinSearchFeedUpdater" />
-        <property name="targetMethod" value="run" />
+        <property name="targetObject" ref="twitterJavaBinSearchFeedUpdater"/>
+        <property name="targetMethod" value="run"/>
       </bean>
     </property>
-    <property name="cronExpression" value="0 * * * * ?" />
+    <property name="cronExpression" value="0 * * * * ?"/>
   </bean>
 
   <bean id="forumFeedTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
     <property name="jobDetail">
       <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-        <property name="targetObject" ref="forumFeedUpdater" />
-        <property name="targetMethod" value="run" />
+        <property name="targetObject" ref="forumFeedUpdater"/>
+        <property name="targetMethod" value="run"/>
       </bean>
     </property>
-    <property name="cronExpression" value="0 * * * * ?" />
+    <property name="cronExpression" value="0 * * * * ?"/>
   </bean>
 
   <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
     <property name="triggers">
       <list>
-        <ref bean="forumFeedTrigger" />
-        <ref bean="twitterJavaBinSearchFeedTrigger" />
+        <ref bean="forumFeedTrigger"/>
+        <ref bean="twitterJavaBinSearchFeedTrigger"/>
       </list>
     </property>
   </bean>
@@ -89,25 +82,25 @@
    | -->
 
   <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
-    <property name="configLocation" value="classpath:ehcache.xml" />
+    <property name="configLocation" value="classpath:ehcache.xml"/>
   </bean>
 
   <bean id="methodCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
     <property name="cacheManager">
-      <ref local="cacheManager" />
+      <ref local="cacheManager"/>
     </property>
-    <property name="cacheName" value="no.java.portal.cache.METHOD_CACHE" />
+    <property name="cacheName" value="no.java.portal.cache.METHOD_CACHE"/>
   </bean>
 
   <bean id="methodCacheInterceptor" class="no.java.portal.infrastructure.MethodCacheInterceptor">
     <property name="cache">
-      <ref local="methodCache" />
+      <ref local="methodCache"/>
     </property>
   </bean>
 
   <bean id="methodCachePointCut" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
     <property name="advice">
-      <ref local="methodCacheInterceptor" />
+      <ref local="methodCacheInterceptor"/>
     </property>
     <property name="patterns">
       <list>
@@ -137,46 +130,25 @@
    | -->
 
   <sec:http auto-config="true">
-    <sec:form-login login-page="/brukerkonto/innlogging" />
-    <sec:intercept-url pattern="/brukerkonto/rediger**" access="ROLE_USER" />
-    <sec:intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+    <sec:form-login login-page="/brukerkonto/innlogging"/>
+    <sec:intercept-url pattern="/brukerkonto/rediger**" access="ROLE_USER"/>
+    <sec:intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
   </sec:http>
 
-  <sec:authentication-provider user-service-ref="userDetailsService" />
+  <sec:authentication-provider user-service-ref="userDetailsService"/>
 
   <bean id="temporaryUserCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
     <property name="cacheManager">
-      <ref local="cacheManager" />
+      <ref local="cacheManager"/>
     </property>
-    <property name="cacheName" value="no.java.portal.cache.TEMPORARY_USER_CACHE" />
-  </bean>
-
-  <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-    <property name="host" value="${mail.server}" />
-    <property name="port" value="${mail.port}" />
+    <property name="cacheName" value="no.java.portal.cache.TEMPORARY_USER_CACHE"/>
   </bean>
 
   <bean id="templateEMailVerificationMessage" class="org.springframework.mail.javamail.MimeMessageHelper">
     <constructor-arg>
-      <bean factory-bean="mailSender" factory-method="createMimeMessage" />
+      <bean factory-bean="mailSender" factory-method="createMimeMessage"/>
     </constructor-arg>
-    <property name="subject" value="Verifisering av brukerregistrering" />
+    <property name="subject" value="Verifisering av brukerregistrering"/>
   </bean>
-
-  <!-- 
-   |
-   | Constretto
-   |
-   | -->
-
-  <constretto:configuration>
-    <constretto:stores>
-      <constretto:properties-store>
-        <constretto:resource location="classpath:spring-defaults.properties" />
-        <constretto:resource location="file:/opt/jb/cibus/etc/cibus.properties" />
-      </constretto:properties-store>
-      <constretto:system-properties-store />
-    </constretto:stores>
-  </constretto:configuration>
 
 </beans>

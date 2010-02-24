@@ -8,7 +8,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -23,7 +23,7 @@ public class Categories {
 	private final SimpleJdbcTemplate template;
 
 	@Autowired
-	public Categories(DataSource dataSource) {
+	public Categories(@Qualifier("onpDataSource") DataSource dataSource) {
 		template = new SimpleJdbcTemplate(dataSource);
 	}
 

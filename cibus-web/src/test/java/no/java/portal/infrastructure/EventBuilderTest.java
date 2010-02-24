@@ -21,7 +21,7 @@ import org.springframework.test.context.ContextConfiguration;
  */
 @Tags("dev")
 @RunWith(ConstrettoSpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/spring.xml" })
+@ContextConfiguration(locations = {"classpath*:spring.xml"})
 public class EventBuilderTest {
 
     @Autowired

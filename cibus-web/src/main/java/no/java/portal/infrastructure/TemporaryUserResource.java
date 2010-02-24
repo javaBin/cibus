@@ -54,11 +54,12 @@ public class TemporaryUserResource {
     private String contextPath;
 
     @Autowired
-    public TemporaryUserResource(Categories categories, Users users, @Qualifier("temporaryUserCache") Ehcache temporaryUserCache,
-            MimeMessageHelper templateEMailVerificationMessage, JavaMailSender mailSender) {
-        super();
+    public TemporaryUserResource(Categories categories, //Users users,
+                                 @Qualifier("temporaryUserCache") Ehcache temporaryUserCache,
+                                 @Qualifier("templateEMailVerificationMessage") MimeMessageHelper templateEMailVerificationMessage,
+                                 JavaMailSender mailSender) {
         this.categories = categories;
-        this.users = users;
+//        this.users = users;
         this.temporaryUserCache = temporaryUserCache;
         this.templateEMailVerificationMessage = templateEMailVerificationMessage;
         this.mailSender = mailSender;

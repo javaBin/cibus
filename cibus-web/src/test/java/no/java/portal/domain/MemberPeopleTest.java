@@ -1,23 +1,21 @@
 package no.java.portal.domain;
 
-import org.constretto.annotation.Tags;
-import org.constretto.test.ConstrettoSpringJUnit4ClassRunner;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
+import org.constretto.annotation.*;
+import org.constretto.test.*;
+import static org.junit.Assert.*;
+import org.junit.*;
+import org.junit.runner.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.test.context.*;
 
-import java.util.List;
-
-import static org.junit.Assert.assertEquals;
+import java.util.*;
 
 /**
  * @author Thor Åge Eldby (thoraageeldby@gmail.com)
  */
 @Tags("dev")
 @RunWith(ConstrettoSpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/spring.xml" })
+@ContextConfiguration(locations = {"classpath*:spring.xml"})
 public class MemberPeopleTest {
 
     @Autowired

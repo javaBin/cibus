@@ -35,10 +35,10 @@
     </div>
 
     <div class="announcements">
-      <parts:tipsLenke />
-	  <parts:sokeFelt />
-      <parts:goldPartnerList />
-      <parts:javaBinTweets />
+      <parts:tipsLenke/>
+      <parts:sokeFelt/>
+      <parts:goldPartnerList/>
+      <parts:javaBinTweets/>
     </div>
   </div>
 </div>

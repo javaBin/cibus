@@ -17,7 +17,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 @Tags("dev")
 @RunWith(ConstrettoSpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"/spring.xml"})
+@ContextConfiguration(locations = {"classpath*:spring.xml"})
 public class UsersTest {
 
     @Autowired
@@ -62,5 +62,4 @@ public class UsersTest {
         String encoded = Users.encodePropertiesField(props);
         assertEquals("Hopp", Users.decodePropertiesField(encoded).get("Hei"));
     }
-
 }

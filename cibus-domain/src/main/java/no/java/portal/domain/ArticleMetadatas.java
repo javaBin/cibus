@@ -20,5 +20,4 @@ public interface ArticleMetadatas {
      * @return list of all years with meetings
      */
     public abstract List<DateTime> getYears();
-
 }

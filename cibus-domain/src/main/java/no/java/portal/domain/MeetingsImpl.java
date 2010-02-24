@@ -8,7 +8,7 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 import org.joda.time.DateTime;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -20,7 +20,9 @@ public class MeetingsImpl implements Meetings {
     final ArticleMetadatas articleMetadatas;
 
     @Autowired
-    public MeetingsImpl(DataSource dataSource, PortalConfiguration configuration, ArticleMetadatas articleMetadatas) {
+    public MeetingsImpl(@Qualifier("onpDataSource")DataSource dataSource,
+                        PortalConfiguration configuration,
+                        ArticleMetadatas articleMetadatas) {
         template = new SimpleJdbcTemplate(dataSource);
         this.configuration = configuration;
         this.articleMetadatas = articleMetadatas;

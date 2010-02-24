@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang.SerializationUtils;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -31,7 +31,7 @@ public class Users {
     private Categories categories;
 
     @Autowired
-    public Users(DataSource dataSource, Categories categories) {
+    public Users(@Qualifier("onpDataSource") DataSource dataSource, Categories categories) {
         template = new SimpleJdbcTemplate(dataSource);
         this.categories = categories;
     }

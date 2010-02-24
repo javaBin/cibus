@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 
 import org.joda.time.DateTime;
 import org.joda.time.LocalDateTime;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -24,7 +24,7 @@ public class ArticleMetadatasImpl implements ArticleMetadatas {
 	protected final SimpleJdbcTemplate template;
 
 	@Autowired
-	protected ArticleMetadatasImpl(DataSource dataSource) {
+	protected ArticleMetadatasImpl(@Qualifier("onpDataSource") DataSource dataSource) {
 		template = new SimpleJdbcTemplate(dataSource);
 	}
 
