@@ -32,15 +32,15 @@
       <h3>
         Nyheter
       </h3>
-      <ul>
+      <ul id="archiveYears">
         <c:forEach var="dt" items="${frontJspBean.years}">
         <li>
           ${dt.year}
-          	<p>
+          	<ul id="archiveMonths">
               <c:forEach var="month" items="${frontJspBean.months}">
-                  <a href="${ctxPath}/arkiv/nyheter/${dt.year}/${month.key}">${month.value}</a>
+                  <li><a href="${ctxPath}/arkiv/nyheter/${dt.year}/${month.key}">${month.value}</a></li>
               </c:forEach>
-            </p>
+            </ul>
         </li>
         </c:forEach>
       </ul>
