@@ -129,6 +129,8 @@
     <spring-security-version>3.0.2.RELEASE</spring-security-version>
     <jersey-version>1.1.5</jersey-version>
     <constretto-version>1.0-rc-12</constretto-version>
+    <version.abdera>0.4.0-incubating</version.abdera>
+
     <encoding>UTF-8</encoding>
     <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
     <maven.compiler.encoding>${encoding}</maven.compiler.encoding>

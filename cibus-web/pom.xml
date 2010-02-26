@@ -101,7 +101,7 @@
     <dependency>
       <groupId>org.apache.abdera</groupId>
       <artifactId>abdera-client</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>${version.abdera}</version>
       <exclusions>
         <exclusion>
           <groupId>org.apache.geronimo.specs</groupId>
