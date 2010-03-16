@@ -10,6 +10,7 @@ import no.java.portal.domain.Meetings;
 
 import org.constretto.annotation.Tags;
 import org.constretto.test.ConstrettoSpringJUnit4ClassRunner;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,53 +23,48 @@ import org.springframework.test.context.ContextConfiguration;
 @Tags("dev")
 @RunWith(ConstrettoSpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/spring.xml" })
+@Ignore
 public class EventBuilderTest {
 
     @Autowired
     private Meetings meetings;
 
     @Test
-    public void test() {
-        // Uncomment @Test to run against active database
-    }
-    
-//    @Test
     public void testReadAndWriteICals_Oslo() throws Exception {
         buildEvents(Category.moter_oslo);
     }
 
-//    @Test
+    @Test
     public void testReadAndWriteICals_Stavanger() throws Exception {
         buildEvents(Category.moter_stavanger);
     }
 
-//    @Test
+    @Test
     public void testReadAndWriteICals_Trondheim() throws Exception {
         buildEvents(Category.moter_trondheim);
     }
 
-//    @Test
+    @Test
     public void testReadAndWriteICals_Sorlandet() throws Exception {
         buildEvents(Category.moter_sorlandet);
     }
 
-//    @Test
+    @Test
     public void testReadAndWriteICals_Bergen() throws Exception {
         buildEvents(Category.moter_bergen);
     }
 
-//    @Test
+    @Test
     public void testReadAndWriteICals_Tromso() throws Exception {
         buildEvents(Category.moter_tromso);
     }
 
     private void buildEvents(Category category) throws Exception {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        new EventBuilder().buildEvent(meetings, category, new ICal4jStreamer(baos));
+        new EventBuilder().buildEvent(meetings, category, new LookICanICalStreamer(baos));
         // Try to parse
         CalendarBuilder builder = new CalendarBuilder();
         byte[] bs = baos.toByteArray();
-        System.out.println(new String(bs));
         builder.build(new InputStreamReader(new ByteArrayInputStream(bs)));
     }
 

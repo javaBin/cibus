@@ -71,20 +71,20 @@ public class ICalendarFactory {
 		appendLine(baos, "VERSION:2.0");
 		appendLine(baos, "PRODID:-//Simplicityworks//NONSGML My Product//EN");
 		appendLine(baos, "BEGIN:VEVENT");
-		append(baos, "DTSTART:");
+		append("DTSTART:");
 		appendLine(baos, format.print(start));
-		append(baos, "DTEND:");
+		append("DTEND:");
 		appendLine(baos, format.print(end));
 		if (summary != null && summary.trim().length() > 0) {
-			append(baos, "SUMMARY;CHARSET=UTF-8:");
+			append("SUMMARY:");
 			appendLine(baos, summary);
 		}
 		if (location != null && location.trim().length() > 0) {
-			append(baos, "LOCATION;CHARSET=UTF-8:");
+			append("LOCATION:");
 			appendLine(baos, location);
 		}
 		if (description != null && description.trim().length() > 0) {
-			append(baos, "DESCRIPTION;CHARSET=UTF-8:");
+			append("DESCRIPTION:");
 			appendLine(baos, description);
 		}
 		appendLine(baos, "END:VEVENT");
@@ -92,18 +92,7 @@ public class ICalendarFactory {
 		return baos.toByteArray();
 	}
 
-	/**
-	 * @return ICS as string
-	 */
-	public String createString() {
-		try {
-			return new String(create(), "UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			throw new RuntimeException("Encoding UTF-8 not supported", e);
-		}
-	}
-
-	private void append(OutputStream os, String string) {
+    private void append(String string) {
 		if (tmpBuf == null) {
 			tmpBuf = new StringBuffer(string);
 		} else {
@@ -113,7 +102,7 @@ public class ICalendarFactory {
 
 	private void appendLine(OutputStream os, String string) {
 		try {
-			append(os, string);
+			append(string);
 			String line = tmpBuf.toString();
 			line = line.replace(CRLF_STRING, "\\n");
 			line = line.replace(LF_STRING, "\\n");
@@ -141,6 +130,7 @@ public class ICalendarFactory {
 	 * @param maxLength
 	 *            TODO
 	 * @throws IOException
+     *            error writing
 	 */
 	static protected void writeLine(OutputStream os, byte[] bs, int maxLength)
 			throws IOException {
