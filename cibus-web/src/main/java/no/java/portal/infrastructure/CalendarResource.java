@@ -42,7 +42,7 @@ public class CalendarResource {
         return new StreamingOutput() {
             public void write(OutputStream output) throws IOException, WebApplicationException {
                 try {
-                    ICal4jStreamer streamer = new ICal4jStreamer(output);
+                    Streamer streamer = new LookICanICalStreamer(output); 
                     EventBuilder eventBuilder = new EventBuilder();
                     Category category = Category.valueOf(categoryString);
                     eventBuilder.buildEvent(meetings, category, streamer);
