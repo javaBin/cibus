@@ -25,9 +25,7 @@ ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, 
 fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
     border: 0;
     margin: 0;
-    outline-color: invert;
-    outline-style: none;
-    outline-width: 0;
+    outline: none 0;
     vertical-align: baseline;
 }
 
@@ -38,7 +36,6 @@ body {
 }
 
 *:focus {
-    outline-color: invert;
     outline-style: none;
     outline-width: 0;
 }
@@ -218,7 +215,8 @@ h3 a {
 }
 
 /* IE6 fix */
-*html /*#header*/ #login {
+/* *html #header #login */
+#login {
     margin-right: 12px;
 }
 
@@ -274,11 +272,6 @@ h3 a {
     margin: 10px 0 5px 8px;
 }
 
-/* IE6 fix */
-*html #search {
-    margin: 10px 0 5px 8px;
-}
-
 #loginBox {
     display: none;
 }
@@ -297,23 +290,6 @@ h3 a {
 }
 
 #search input[type="submit"] {
-    background: transparent url( ../gfx/java_no_2007/main_search_btn.gif ) 0 0 no-repeat;
-    border: none;
-    height: 27px;
-    width: 51px;
-}
-
-/* IE6 fix */
-*html #search .search_input, *html #login .login_input {
-    border: 1px solid #F8B457;
-    height: 18px;
-    margin: 2px 5px 0 0;
-    padding: 3px 0 0 5px;
-    width: 138px;
-}
-
-/* IE6 fix */
-*html #search .search_btn {
     background: transparent url( ../gfx/java_no_2007/main_search_btn.gif ) 0 0 no-repeat;
     border: none;
     height: 27px;
@@ -631,12 +607,6 @@ h3 a {
     background: url( ../gfx/java_no_2007/standalone_arw.jpg ) 0 1px no-repeat;
 }
 
-/* IE6 fix */
-*html #frontPage_news .standalone {
-    margin: 40px 0 0 0;
-    border: none;
-}
-
 /* IE7 fix */
 *+ html #frontPage_news .standalone {
     margin: 40px 0 0 0;
@@ -649,12 +619,6 @@ h3 a {
     padding-left: 17px;
     background: url( ../gfx/java_no_2007/standalone_arw.jpg ) 0 1px no-repeat;
     border-top: none;
-}
-
-/* IE6 fix */
-*html #frontPage_news .halfcolumn .standalone {
-    margin: 0;
-    border: none;
 }
 
 /* IE7 fix */
@@ -671,11 +635,6 @@ h3 a {
     width: 214px;
 }
 
-/* IE6 fix */
-*html #frontPage_news .announcements {
-    margin-right: 10px;
-}
-
 #frontPage_news .announcements .tips {
     background: transparent url( ../gfx/java_no_2007/tips_bg.jpg ) 0 0 no-repeat;
     height: 63px;
@@ -688,11 +647,6 @@ h3 a {
     color: #FFFFFF;
     font-size: 1.2em;
     width: 70px;
-}
-
-/* IE6 fix */
-*html #frontPage_news .announcements .tips p {
-    margin: 13px 0 10px 10px;
 }
 
 #frontPage_news .announcements .tips_btn {
@@ -799,12 +753,6 @@ h3 a {
     display: block;
     margin-bottom: 20px;
 }
-
-/* IE6 fix */
-*html #frontPage_news ul.breadcrumb {
-    height: 1%;
-    margin-bottom: 10px;
- }
 
 /* IE7 fix */
 *+ html #frontPage_news ul.breadcrumb {
@@ -940,11 +888,6 @@ h3 a {
     background: url( ../gfx/java_no_2007/sqr-bullet.gif ) 0 5px no-repeat;
 }
 
-/* IE6 fix */
-*html #frontPage_news .lecture_index_narrow ul li a {
-    padding-left: 12px;
-}
-
 #frontPage_news .lecture_index_narrow ul li a:link {
     padding-left: 12px;
     font-size: 1em;
@@ -978,12 +921,6 @@ h3 a {
 #frontPage_news .lecture_index_wide ul li img {
     float: left;
     margin: 7px -5px 0 -15px;
-}
-
-/* IE6 fix */
-*html #frontPage_news .lecture_index_wide ul li a {
-    padding-left: 12px;
-    line-height: 26px;
 }
 
 #frontPage_news .lecture_index_wide ul li a:link {

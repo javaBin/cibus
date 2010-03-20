@@ -6,8 +6,8 @@
       xmlns:portal="http://tags.java.no/portal"
       xmlns:parts="urn:jsptagdir:/WEB-INF/tags"
       xmlns:jsp="http://java.sun.com/JSP/Page">
-<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8" />
-<jsp:useBean id="frontJspBean" type="no.java.portal.page.FrontJspBean" scope="application" />
+<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8"/>
+<jsp:useBean id="frontJspBean" type="no.java.portal.page.FrontJspBean" scope="application"/>
 <head><title>javaBin - Forsiden</title></head>
 <body>
 <div id="frontPage_news">

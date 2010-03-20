@@ -1,4 +1,4 @@
-package no.java.portal.infrastructure;
+package no.java.portal.resource;
 
 import java.io.IOException;
 import java.text.MessageFormat;
@@ -107,5 +107,4 @@ public class TemporaryUserResource {
             throw new RuntimeException("Unable to read user registration email template");
         }
     }
-
 }

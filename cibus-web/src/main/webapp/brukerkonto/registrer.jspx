@@ -6,9 +6,21 @@
       xmlns:portal="http://tags.java.no/portal"
       xmlns:parts="urn:jsptagdir:/WEB-INF/tags"
       xmlns:jsp="http://java.sun.com/JSP/Page">
-<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8" />
-<jsp:useBean id="frontJspBean" type="no.java.portal.page.FrontJspBean" scope="application" />
-<head><title>javaBin - Registrer bruker</title></head>
+<jsp:directive.page pageEncoding="utf-8" contentType="text/html;charset=utf-8"/>
+<jsp:useBean id="frontJspBean" type="no.java.portal.page.FrontJspBean" scope="application"/>
+<head>
+  <title>javaBin - Registrer bruker</title>
+  <style type="text/css">
+    label {
+      margin-right: 1em;
+    }
+
+    td#save {
+      text-align: right;
+    }
+  </style>
+  <script src="${pageContext.request.contextPath}/js/brukerkonto.js" type="text/javascript"><!-- space --></script>
+</head>
 <body>
 <div id="frontPage_news">
   <div class="wrapper">
@@ -16,14 +28,14 @@
       <h2>Registrer bruker</h2>
       <form id="registerUserForm" action="${pageContext.request.contextPath}/rest/temporary/user" method="post">
       <table>
-        <tr><td>Brukernavn: </td><td><input type="text" name="userName"/></td></tr>
-        <tr><td>E-post: </td><td><input id="formEMail" type="text" name="email" /></td></tr>
-        <tr><td>Passord: </td><td><input id="formPassword" type="password" name="password" /></td></tr>
-        <tr><td>Bekreft passord: </td><td><input id="formPasswordConfirm" type="password" name="confirmPassword" /></td></tr>
+        <tr><td><label for="userName">Brukernavn</label></td><td><input type="text" id="userName" name="userName"/></td></tr>
+        <tr><td><label for="mail">E-post</label></td><td><input id="mail" type="text" name="mail"/></td></tr>
+        <tr><td><label for="password">Passord</label></td><td><input id="password" type="password" name="password"/></td></tr>
+        <tr><td><label for="confirmedPassword">Bekreft passord</label></td><td><input id="confirmedPassword" type="password" name="confirmPassword"/></td></tr>
+        <tr>
+          <td id="save" colspan="2"><input type="submit" value="Lagre"/></td>
+        </tr>
       </table>
-      <p>
-        <input type="submit" value="Lagre" />
-      </p>
       <p class="formError">
       </p>
       <p class="formSuccess">
@@ -33,10 +45,10 @@
     </div>
 
     <div class="announcements">
-      <parts:tipsLenke />
-	  <parts:sokeFelt />
-      <parts:goldPartnerList />
-      <parts:javaBinTweets />
+      <parts:tipsLenke/>
+      <parts:sokeFelt/>
+      <parts:goldPartnerList/>
+      <parts:javaBinTweets/>
     </div>
   </div>
 </div>

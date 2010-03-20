@@ -31,7 +31,7 @@ public class DefaultMemberService implements MemberService {
         this.uuidGenerator = uuidGenerator;
     }
 
-// -----------------------------------------------------------------------
+    // -----------------------------------------------------------------------
     // MemberService Implementation
     // -----------------------------------------------------------------------
 

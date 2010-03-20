@@ -1,29 +1,16 @@
-package no.java.portal.infrastructure;
+package no.java.portal.resource;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.Map.Entry;
-
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.Response;
-
-import no.java.portal.domain.Categories;
-import no.java.portal.domain.SubscribedCategory;
-import no.java.portal.domain.User;
-import no.java.portal.domain.UserNotFoundException;
-import no.java.portal.domain.Users;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import no.java.portal.domain.*;
+import org.apache.commons.logging.*;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.security.core.*;
 import org.springframework.security.core.context.*;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.*;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.*;
+import java.util.*;
+import java.util.Map.*;
 
 /**
  * @author <a href="mailto:thor.aage.eldby@arktekk.no">Thor &Aring;ge Eldby</a>
@@ -35,30 +22,30 @@ public class UserResource {
 
     private static final Log logger = LogFactory.getLog(UserResource.class);
 
-    private Categories categories;
+    private final Categories categories;
 
-    private Users users;
+    private final Users users;
 
     @Autowired
     public UserResource(Categories categories, Users users) {
-        super();
         this.categories = categories;
         this.users = users;
     }
 
     @POST
+    @Consumes()
     public void updateUser(MultivaluedMap<String, String> selectedCategories) {
-        final User user;
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
         try {
-            user = users.getUser(auth.getName());
+            User user = users.getUser(auth.getName());
+            user = createUserObject(user, categories, selectedCategories);
+            users.update(user);
         } catch (UserNotFoundException e) {
             WebApplicationException ex = new WebApplicationException(e, Response.Status.UNAUTHORIZED);
             logger.error("User " + auth.getName() + " does not exist", ex);
             throw ex;
         }
-        final User newUser = createUserObject(user, categories, selectedCategories);
-        users.update(newUser);
     }
 
     static User createUserObject(User user, Categories categories, MultivaluedMap<String, String> selectedCategories) {
@@ -89,8 +76,6 @@ public class UserResource {
             subscribedCategories.add(new SubscribedCategory(sc.getCategoryId(), sc.getDescription(), categoryIds.contains(sc
                     .getCategoryId())));
         }
-        User newUser = new User(user.getId(), userName, password, subscribedCategories, email, user.getUserkey());
-        return newUser;
+        return new User(user.getId(), userName, password, subscribedCategories, email, user.getUserkey());
     }
-
 }

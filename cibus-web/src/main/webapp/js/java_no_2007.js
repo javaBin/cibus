@@ -37,70 +37,6 @@ $(document).ready(function() {
 	// Shuffling of partner logos
 	$(".linkList tr td").shuffleSet();
 
-	// For registration and editing user forms
-	
-    function formShowSuccess() {
-    	$(".formError").hide();
-		$(".formSuccess").show();
-    }
-    
-    function formShowError(text) {
-		$(".formSuccess").hide();
-		$(".formError").show();
-		$(".formError").text(text);
-    }
-
-    // http://www.regular-expressions.info/email.html
-    function isValidEMail(email) {
-    	var pattern = new RegExp(/(?:[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/i);
-    	return pattern.test(email);
-    }
-    
-    $("#editUserForm").ajaxForm({
-    	beforeSubmit: function(formData, jqForm, options) {
-			if (!isValidEMail($("#formEMail").val())) {
-				formShowError("E-postadressen valideres feil!");
-				return false;
-			}
-    	},
-        success: function() {
-    		formShowSuccess()
-        }, 
-    	error: function() {
-    		formShowError("Feil i lagring, er du fortsatt logget inn?");
-        }
-    });
-
-    $("#registerUserForm").ajaxForm({
-    	beforeSubmit: function(formData, jqForm, options) {
-    		var filled = true;
-    		jQuery.each(formData, function(i, val) {
-    			if (val.value == "") filled = false;
-    		});
-    		if (!filled) {
-    			formShowError("Alle feltene må fylles inn!");
-    			return false;
-    		}
-    		if ($("#formPasswordConfirm").val() != $("#formPassword").val()) {
-    			formShowError("Passord og passordbekreftelsen er ikke lik!");
-    			return false;
-    		}
-    		if (!isValidEMail($("#formEMail").val())) {
-    			formShowError("E-postadressen valideres feil!");
-    			return false;
-    		}
-    	},
-        success: function() {
-    		formShowSuccess();
-        }, 
-    	error: function(request, textStatus, errorThrown) {
-        	if (request.status == 400)
-        		formShowError("Bruker med det brukernavn har allerede blitt registrert");
-        	else
-        		formShowError("Feil i registrering");
-        }
-    });
-
 	// Toggle login visibility
 	$("#toggleLogin").click(function() {$("#loginBox").slideToggle(); return false;});
 
@@ -172,3 +108,21 @@ $(document).ready(function() {
 	$("#" + city).click();
 
 });
+
+// For registration and editing user forms
+function formShowSuccess() {
+    $(".formError").hide();
+    $(".formSuccess").show();
+}
+
+function formShowError(text) {
+    $(".formSuccess").hide();
+    $(".formError").show();
+    $(".formError").text(text);
+}
+
+// http://www.regular-expressions.info/email.html
+function isValidEMail(email) {
+    var pattern = new RegExp(/(?:[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/i);
+    return pattern.test(email);
+}

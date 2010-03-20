@@ -1,23 +1,15 @@
-package no.java.portal.infrastructure;
+package no.java.portal.resource;
 
-import java.io.IOException;
-import java.io.OutputStream;
+import no.java.portal.domain.*;
+import no.java.portal.infrastructure.*;
+import org.apache.commons.logging.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.*;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.StreamingOutput;
-import javax.ws.rs.core.Response.Status;
-
-import no.java.portal.domain.Category;
-import no.java.portal.domain.Meetings;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import javax.ws.rs.*;
+import javax.ws.rs.core.Response.*;
+import javax.ws.rs.core.*;
+import java.io.*;
 
 /**
  * @author <a href="mailto:thor.aage.eldby@arktekk.no">Thor &Aring;ge Eldby</a>
@@ -29,7 +21,7 @@ public class CalendarResource {
 
     private static final Log logger = LogFactory.getLog(CalendarResource.class);
 
-    private Meetings meetings;
+    private final Meetings meetings;
 
     @Autowired
     public CalendarResource(Meetings meetings) {
@@ -53,5 +45,4 @@ public class CalendarResource {
             }
         };
     }
-
 }
