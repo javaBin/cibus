@@ -1,20 +1,20 @@
 package no.java.portal.infrastructure;
 
-import java.io.IOException;
-import java.io.PrintStream;
+import no.java.portal.domain.Category;
+import no.java.portal.domain.Meetings;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import no.java.portal.domain.Category;
-import no.java.portal.domain.Meetings;
+import java.io.IOException;
+import java.io.PrintStream;
 
 /**
  * @author <a href="mailto:thor.aage.eldby@arktekk.no">Thor &Aring;ge Eldby</a>
  * @since May 27, 2009
  */
+@Deprecated // Is this in use anymore? CalendarResource does its job now doesn't it?
 public class ICSMeetingServlet extends CibusServletBase {
 
     private static final long serialVersionUID = -2877768829328802995L;
@@ -25,7 +25,7 @@ public class ICSMeetingServlet extends CibusServletBase {
             String categoryName = req.getRequestURI().replaceFirst(".*/", "").replaceAll("\\.ics$", "");
             Category category = Category.valueOf(categoryName);
             resp.setContentType("text/calendar");
-            ICal4jStreamer streamer = new ICal4jStreamer(resp.getOutputStream());
+            Streamer streamer = new LookICanICalStreamer(resp.getOutputStream());
             EventBuilder eventBuilder = new EventBuilder();
             eventBuilder.buildEvent(getBean("meetings", Meetings.class), category, streamer);
         } catch (RuntimeException e) {

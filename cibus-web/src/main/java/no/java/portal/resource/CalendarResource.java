@@ -1,15 +1,20 @@
 package no.java.portal.resource;
 
-import no.java.portal.domain.*;
-import no.java.portal.infrastructure.*;
-import org.apache.commons.logging.*;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.stereotype.*;
+import no.java.portal.domain.Category;
+import no.java.portal.domain.Meetings;
+import no.java.portal.infrastructure.EventBuilder;
+import no.java.portal.infrastructure.LookICanICalStreamer;
+import no.java.portal.infrastructure.Streamer;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.Response.*;
-import javax.ws.rs.core.*;
-import java.io.*;
+import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.StreamingOutput;
+import java.io.IOException;
+import java.io.OutputStream;
 
 /**
  * @author <a href="mailto:thor.aage.eldby@arktekk.no">Thor &Aring;ge Eldby</a>
@@ -34,7 +39,7 @@ public class CalendarResource {
         return new StreamingOutput() {
             public void write(OutputStream output) throws IOException, WebApplicationException {
                 try {
-                    ICal4jStreamer streamer = new ICal4jStreamer(output);
+                    Streamer streamer = new LookICanICalStreamer(output); 
                     EventBuilder eventBuilder = new EventBuilder();
                     Category category = Category.valueOf(categoryString);
                     eventBuilder.buildEvent(meetings, category, streamer);

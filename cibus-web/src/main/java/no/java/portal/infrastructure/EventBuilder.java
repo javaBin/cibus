@@ -1,20 +1,19 @@
 package no.java.portal.infrastructure;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-
 import no.java.portal.domain.Category;
 import no.java.portal.domain.Meeting;
 import no.java.portal.domain.Meetings;
-
 import org.joda.time.DateTime;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringReader;
+import java.util.List;
 
 /**
  * Builds up
@@ -28,11 +27,6 @@ public class EventBuilder {
     private static final String XHTML_SPECIAL = readFile("xhtml-special.ent");
     private static final String XHTML_SYMBOL = readFile("xhtml-symbol.ent");
 
-    /**
-     * @param meetings
-     * @param category
-     * @param streamer
-     */
     public void buildEvent(Meetings meetings, Category category, Streamer streamer) {
         streamer.setTitle("javaBin-møter for " + category.getName());
         List<Meeting> ms = meetings.getMeetingByCategory(category, 0, 10);
@@ -54,10 +48,6 @@ public class EventBuilder {
         streamer.build();
     }
 
-    /**
-     * @param html
-     * @return text
-     */
     protected static String convertHTMLToText(String html) {
         StringBuffer buf = new StringBuffer("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
         buf.append("<!DOCTYPE htmlish [\n");
@@ -65,9 +55,6 @@ public class EventBuilder {
         buf.append(XHTML_SPECIAL);
         buf.append(XHTML_SYMBOL);
         buf.append("]>\n");
-        // + " <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0
-        // Transitional//EN\"
-        // \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n"
         buf.append("<div>");
         html = html.replaceAll("<[pP] *>", "<p\\/>");
         html = html.replaceAll("<\\/[pP]>", "");
@@ -79,10 +66,9 @@ public class EventBuilder {
         buf.append("</div>");
         try {
             XMLReader prsr = XMLReaderFactory.createXMLReader();
-            // System.out.println("Parser: " + prsr.getClass().getName());
             HtmlishHandler hh = new HtmlishHandler();
             prsr.setContentHandler(hh);
-            prsr.parse(new InputSource(new ByteArrayInputStream(buf.toString().getBytes())));
+            prsr.parse(new InputSource(new StringReader(buf.toString())));
             return hh.getStrippedHtml();
         } catch (SAXException e) {
             // System.out.println(html);
@@ -92,10 +78,6 @@ public class EventBuilder {
         }
     }
 
-    /**
-     * @param fileName
-     * @return content
-     */
     protected static String readFile(String fileName) {
         try {
             InputStream is = EventBuilder.class.getResourceAsStream(fileName);
