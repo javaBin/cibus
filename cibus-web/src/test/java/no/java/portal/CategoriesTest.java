@@ -1,12 +1,12 @@
 package no.java.portal;
 
-import no.java.portal.domain.*;
-import org.constretto.annotation.*;
-import org.constretto.test.*;
-import org.junit.*;
-import org.junit.runner.*;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.test.context.*;
+import no.java.portal.domain.Categories;
+import org.constretto.annotation.Tags;
+import org.constretto.test.ConstrettoSpringJUnit4ClassRunner;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 
 /**
  * @author <a href="mailto:thor.aage.eldby@arktekk.no">Thor &Aring;ge Eldby</a>

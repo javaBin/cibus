@@ -1,19 +1,18 @@
 package no.java.portal.infrastructure;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStreamReader;
-
 import net.fortuna.ical4j.data.CalendarBuilder;
 import no.java.portal.domain.Category;
 import no.java.portal.domain.Meetings;
-
 import org.constretto.annotation.Tags;
 import org.constretto.test.ConstrettoSpringJUnit4ClassRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStreamReader;
 
 /**
  * @author <a href="mailto:thor.aage.eldby@arktekk.no">Thor &Aring;ge Eldby</a>

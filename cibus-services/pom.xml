@@ -48,6 +48,11 @@
       <artifactId>postgresql</artifactId>
       <version>8.1-408.jdbc3</version>
     </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.2.131</version>
+    </dependency>
 
     <dependency>
       <groupId>com.icegreen</groupId>
@@ -74,7 +79,7 @@
     </dependency>
     <dependency>
       <groupId>org.constretto</groupId>
-      <artifactId>constretto-test-junit-4.5 </artifactId>
+      <artifactId>constretto-test-junit-4.5</artifactId>
       <version>${constretto-version}</version>
       <scope>test</scope>
     </dependency>

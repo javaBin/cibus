@@ -1,21 +1,26 @@
 package no.java.portal.domain.service;
 
-import fj.*;
-import fj.data.*;
+import fj.F;
 import fj.data.HashMap;
 import fj.data.List;
-import fj.pre.*;
-import static junit.framework.Assert.*;
-import no.java.portal.domain.member.*;
-import no.java.portal.domain.member.Member.*;
-import static no.java.portal.domain.member.Member.MailAddress.*;
-import static no.java.portal.domain.member.Member.MembershipNo.*;
-import no.java.portal.domain.service.AuthenticationService.*;
-import org.constretto.test.*;
-import org.joda.time.*;
-import org.junit.*;
-import org.junit.runner.*;
-import org.springframework.test.context.*;
+import fj.data.Option;
+import fj.pre.Equal;
+import fj.pre.Hash;
+import no.java.portal.domain.member.Member;
+import no.java.portal.domain.member.Member.MailAddress;
+import no.java.portal.domain.member.Member.MembershipNo;
+import no.java.portal.domain.service.AuthenticationService.CibusAuthentication;
+import org.constretto.annotation.Tags;
+import org.constretto.test.ConstrettoSpringJUnit4ClassRunner;
+import org.joda.time.DateTime;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
+import static no.java.portal.domain.member.Member.MailAddress.mailAddress;
+import static no.java.portal.domain.member.Member.MembershipNo.membershipNo;
 
 /**
  * @author <a href="mailto:trygvis@java.no">Trygve Laugst&oslash;l</a>
@@ -23,8 +28,9 @@ import org.springframework.test.context.*;
  */
 @RunWith(ConstrettoSpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:/spring.xml", "classpath:/test-cibus-services-spring.xml"})
+@Tags("dev")
 public class AuthenticationServiceTest {
-
+                
     @Test
     public void testBasic() {
         final HashMap<MembershipNo, Member> members = new HashMap<MembershipNo, Member>(Equal.<MembershipNo>anyEqual(), Hash.<MembershipNo>anyHash());

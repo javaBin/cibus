@@ -1,19 +1,22 @@
 package no.java.portal.domain.service;
 
-import com.icegreen.greenmail.util.*;
-import static junit.framework.Assert.*;
-import no.java.portal.domain.member.*;
-import static no.java.portal.domain.member.Member.MailAddress.*;
-import org.constretto.test.*;
-import org.junit.*;
-import org.junit.runner.*;
-import org.slf4j.*;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.test.context.*;
+import com.icegreen.greenmail.util.GreenMail;
+import no.java.portal.domain.member.Member;
+import org.constretto.annotation.Tags;
+import org.constretto.test.ConstrettoSpringJUnit4ClassRunner;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 
-import javax.mail.*;
-import javax.mail.internet.*;
-import java.io.*;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+import java.io.IOException;
+
+import static junit.framework.Assert.assertEquals;
+import static no.java.portal.domain.member.Member.MailAddress.mailAddress;
 
 /**
  * @author <a href="mailto:trygvis@java.no">Trygve Laugst&oslash;l</a>
@@ -21,6 +24,7 @@ import java.io.*;
  */
 @RunWith(ConstrettoSpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:/spring.xml", "classpath:/test-cibus-services-spring.xml"})
+@Tags("dev")
 public class MemberServiceTest {
 
     @Autowired
@@ -37,7 +41,8 @@ public class MemberServiceTest {
 
         Member member = Member.createNewMember("Trygve", "Laugstol", mailAddress("foo@bar.com"));
 
-        Member savedMember = memberService.addMember(member);
+        //Member savedMember = 
+        memberService.addMember(member);
 
         MimeMessage[] mimeMessages = greenMail.getReceivedMessages();
         assertEquals(1, mimeMessages.length);

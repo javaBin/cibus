@@ -22,7 +22,7 @@ create table member_mail_address(
 --    verification_time     timestamp,
 --    verification_code     varchar(36),
     constraint member_mail_address_pk primary key (value),
-    constraint membership_member foreign key (membership_no) references member(membership_no)
+    constraint member_mail_address_membership_member foreign key (membership_no) references member(membership_no)
 );
 
 create table company(
@@ -35,6 +35,6 @@ create table membership(
     membership_no         integer not null,
     sponsored_by          integer not null,
     constraint membership_pk primary key (membership_no, sponsored_by),
-    constraint membership_member foreign key (membership_no) references member(membership_no),
-    constraint membership_company foreign key (sponsored_by) references company(id)
+    constraint membership_membership_member foreign key (membership_no) references member(membership_no),
+    constraint membership_membership_company foreign key (sponsored_by) references company(id)
 );
