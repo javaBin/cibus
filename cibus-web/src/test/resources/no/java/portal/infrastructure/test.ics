@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Simplicityworks//NONSGML My Product//EN
+BEGIN:VEVENT
+DTSTART:19970714T170000Z
+DTEND:19970715T035900Z
+SUMMARY;CHARSET=UTF-8:Dette er en dag de feirer der borte i Frankrike for
+  det var da de tok bastiljen fra rojalistene. Dette feires med fest ogs
+ å videre og hvem vet hva annet. \nKongen er ikke invitert ettersom han 
+ mistet hodet i det kritiske øyeblikket.
+LOCATION;CHARSET=UTF-8:Oslo
+END:VEVENT
+END:VCALENDAR

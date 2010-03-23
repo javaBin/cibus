@@ -1,9 +1,9 @@
 package no.java.portal;
 
 import no.java.portal.domain.Categories;
-
 import org.constretto.annotation.Tags;
 import org.constretto.test.ConstrettoSpringJUnit4ClassRunner;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +22,7 @@ public class CategoriesTest {
 	Categories categories;
 
 	@Test
+    @Ignore
 	public void test() {
 		// List<CategoryDetails> all = new ArrayList<CategoryDetails>(categories
 		// .getSubscribable());
