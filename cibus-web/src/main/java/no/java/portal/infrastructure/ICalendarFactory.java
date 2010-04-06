@@ -80,7 +80,7 @@ public class ICalendarFactory {
         appendLine(baos, "VERSION:2.0");
         appendLine(baos, "PRODID:-//Simplicityworks//NONSGML My Product//EN");
         if (title != null) {
-            append("X-WR-CALNAME;CHARSET=UTF-8:");
+            append("X-WR-CALNAME:");
             appendLine(baos, title);
         }
         for (Event event : events) {
@@ -91,17 +91,17 @@ public class ICalendarFactory {
             appendLine(baos, format.print(event.getEnd()));
             String summary = event.getSummary();
             if (summary != null && summary.trim().length() > 0) {
-                append("SUMMARY;CHARSET=UTF-8:");
+                append("SUMMARY:");
                 appendLine(baos, summary);
             }
             String location = event.getLocation();
             if (location != null && location.trim().length() > 0) {
-                append("LOCATION;CHARSET=UTF-8:");
+                append("LOCATION:");
                 appendLine(baos, location);
             }
             String description = event.getDescription();
             if (description != null && description.trim().length() > 0) {
-                append("DESCRIPTION;CHARSET=UTF-8:");
+                append("DESCRIPTION:");
                 appendLine(baos, description);
             }
             appendLine(baos, "END:VEVENT");
