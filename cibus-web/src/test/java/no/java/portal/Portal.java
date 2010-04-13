@@ -13,7 +13,7 @@ public class Portal {
 
     public Portal()  {
         System.setProperty("CONSTRETTO_TAGS", "dev");
-        System.setProperty("CONSTRETTO_ENV", "dev©");
+        System.setProperty("CONSTRETTO_ENV", "dev");
 
         final Server server = new Server();
         final Connector connector = new SelectChannelConnector();
