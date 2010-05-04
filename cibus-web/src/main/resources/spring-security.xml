@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+  <!--
+   |
+   | Security
+   |
+   | -->
+
+  <sec:http auto-config="true">
+    <sec:form-login login-page="/brukerkonto/innlogging"/>
+    <sec:intercept-url pattern="/brukerkonto/rediger**" access="ROLE_USER"/>
+    <sec:intercept-url pattern="/no/java/portal/domain" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+  </sec:http>
+
+  <sec:authentication-manager alias="authenticationManager">
+    <sec:authentication-provider ref="cibusAuthenticationProvider"/>
+  </sec:authentication-manager>
+
+  <bean id="temporaryUserCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+    <property name="cacheManager" ref="cacheManager"/>
+    <property name="cacheName" value="no.java.portal.cache.TEMPORARY_USER_CACHE"/>
+  </bean>
+
+</beans>

@@ -1,4 +1,4 @@
-package no.java.portal.domain;
+package no.java.portal.domain.member;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 

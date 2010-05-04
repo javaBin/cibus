@@ -15,7 +15,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
 
-@Tags("dev")
+@Tags("local")
 @RunWith(ConstrettoSpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath*:spring.xml"})
 public class ArticlesTest {

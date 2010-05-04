@@ -13,7 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
  * @author <a href="mailto:thor.aage.eldby@arktekk.no">Thor &Aring;ge Eldby</a>
  * @since Mar 4, 2009
  */
-@Tags("dev")
+@Tags("local")
 @RunWith(ConstrettoSpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath*:spring.xml"})
 public class CategoriesTest {

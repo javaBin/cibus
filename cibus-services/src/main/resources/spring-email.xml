@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+  <bean id="templateEMailVerificationMessage" class="org.springframework.mail.javamail.MimeMessageHelper">
+    <constructor-arg>
+      <bean factory-bean="mailSender" factory-method="createMimeMessage"/>
+    </constructor-arg>
+    <property name="subject" value="Verifisering av brukerregistrering"/>
+  </bean>
+
+  <bean id="newAccountTemplate" class="org.springframework.mail.javamail.MimeMessageHelper">
+    <constructor-arg>
+      <bean factory-bean="mailSender" factory-method="createMimeMessage"/>
+    </constructor-arg>
+    <property name="subject" value="Ny bruker"/>
+    <property name="from" value="${mail.from}"/>
+  </bean>
+
+  <bean id="resetPasswordTemplate" class="org.springframework.mail.javamail.MimeMessageHelper">
+    <constructor-arg>
+      <bean factory-bean="mailSender" factory-method="createMimeMessage"/>
+    </constructor-arg>
+    <property name="subject" value="Nytt passord for javaBin"/>
+    <property name="from" value="${mail.from}"/>
+  </bean>
+  
+</beans>

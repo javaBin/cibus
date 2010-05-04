@@ -1,6 +1,6 @@
-drop table jb_memberships;
-drop table jb_member_people;
-drop table jb_member_companies;
+--drop table jb_memberships;
+--drop table jb_member_people;
+--drop table jb_member_companies;
 
 create table jb_member_people (
   id integer not null,

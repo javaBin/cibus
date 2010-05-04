@@ -19,9 +19,11 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-      <version>1.4</version>
+      <groupId>no.java.cibus</groupId>
+      <artifactId>cibus-domain</artifactId>
+      <version>${project.version}</version>
+      <type>test-jar</type>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
@@ -48,11 +50,6 @@
       <artifactId>postgresql</artifactId>
       <version>8.1-408.jdbc3</version>
     </dependency>
-    <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
-      <version>1.2.131</version>
-    </dependency>
 
     <dependency>
       <groupId>com.icegreen</groupId>
@@ -67,21 +64,15 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.2.131</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>no.java.cibus</groupId>
       <artifactId>cibus-test-resources</artifactId>
       <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.constretto</groupId>
-      <artifactId>constretto-spring</artifactId>
-      <version>${constretto-version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.constretto</groupId>
-      <artifactId>constretto-test-junit-4.5</artifactId>
-      <version>${constretto-version}</version>
-      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>

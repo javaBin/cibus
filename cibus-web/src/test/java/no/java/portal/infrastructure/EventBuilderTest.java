@@ -19,7 +19,7 @@ import java.io.InputStreamReader;
  * @author <a href="mailto:thor.aage.eldby@arktekk.no">Thor &Aring;ge Eldby</a>
  * @since May 27, 2009
  */
-@Tags("dev")
+@Tags("local")
 @RunWith(ConstrettoSpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/spring.xml" })
 @Ignore

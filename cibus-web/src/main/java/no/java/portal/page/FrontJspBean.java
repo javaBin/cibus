@@ -1,9 +1,14 @@
 package no.java.portal.page;
 
-import no.java.portal.domain.*;
-import org.joda.time.*;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.stereotype.*;
+import no.java.portal.domain.ArticleMetadatas;
+import no.java.portal.domain.Articles;
+import no.java.portal.domain.Category;
+import no.java.portal.domain.NewsItem;
+import no.java.portal.domain.member.MemberPeople;
+import no.java.portal.domain.member.MemberPerson;
+import org.joda.time.DateTime;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 

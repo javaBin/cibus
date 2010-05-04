@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+  <bean class="org.apache.abdera.Abdera"/>
+
+  <bean id="forumFeedUpdater" class="no.java.portal.infrastructure.FeedUpdater">
+    <constructor-arg>
+      <bean class="java.net.URL">
+        <constructor-arg value="${rss.forum}"/>
+      </bean>
+    </constructor-arg>
+  </bean>
+
+  <bean id="twitterJavaBinSearchFeedUpdater" class="no.java.portal.infrastructure.TwitterJavaBinSearchFeedUpdater">
+    <constructor-arg ref="org.apache.abdera.Abdera"/>
+    <constructor-arg>
+      <bean class="java.net.URL">
+        <constructor-arg value="${twitter.search}/?q=javabin"/>
+      </bean>
+    </constructor-arg>
+    <constructor-arg ref="twitter"/>
+  </bean>
+  
+  <bean id="twitterJavaBinSearchFeedTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail">
+      <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="twitterJavaBinSearchFeedUpdater"/>
+        <property name="targetMethod" value="run"/>
+      </bean>
+    </property>
+    <property name="cronExpression" value="0 * * * * ?"/>
+  </bean>
+
+  <bean id="forumFeedTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    <property name="jobDetail">
+      <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="forumFeedUpdater"/>
+        <property name="targetMethod" value="run"/>
+      </bean>
+    </property>
+    <property name="cronExpression" value="0 * * * * ?"/>
+  </bean>
+
+  <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="triggers">
+      <list>
+        <ref bean="forumFeedTrigger"/>
+        <ref bean="twitterJavaBinSearchFeedTrigger"/>
+      </list>
+    </property>
+  </bean>
+
+</beans>

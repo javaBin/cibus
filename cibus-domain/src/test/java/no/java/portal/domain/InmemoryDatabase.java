@@ -1,4 +1,4 @@
-package no.java.portal.domain.service;
+package no.java.portal.domain;
 
 import org.apache.commons.io.IOUtils;
 import org.constretto.annotation.Tags;
@@ -21,6 +21,7 @@ public class InmemoryDatabase implements InitializingBean {
     private List<String> tags;
 
     private final JdbcTemplate template;
+    private static boolean visited = false;
 
     @Autowired
     public InmemoryDatabase(DataSource cibusDataSource) {
@@ -28,14 +29,20 @@ public class InmemoryDatabase implements InitializingBean {
     }
 
     public void afterPropertiesSet() throws Exception {
-        if (tags.contains("dev")) {
-            String content = IOUtils.toString(getClass().getResourceAsStream("/sql/cibus.sql"));
-            String[] sqls = content.split(";");
-            for (String sql : sqls) {
-                sql = sql.trim();
-                if (!sql.matches(".*alter\\s+sequence\\s+.*\\s+owned\\s+by.*")) {
-                    sql = sql.replaceAll("integer", "bigint");
-                    template.update(sql);
+        if (visited)
+            return;
+        visited = true;
+        if (tags.contains("local")) {
+            String[] files = {"/sql/cibus.sql", "/sql/onp-ttt.sql"};
+            for (String file : files) {
+                String content = IOUtils.toString(getClass().getResourceAsStream(file));
+                String[] sqls = content.split(";");
+                for (String sql : sqls) {
+                    sql = sql.trim();
+                    if (!sql.matches(".*alter\\s+sequence\\s+.*\\s+owned\\s+by.*")) {
+                        sql = sql.replaceAll("integer", "bigint");
+                        template.update(sql);
+                    }
                 }
             }
         }

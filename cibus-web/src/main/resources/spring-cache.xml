@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+  <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+    <property name="beanNames">
+      <list>
+        <value>meetings</value>
+        <value>articles</value>
+      </list>
+    </property>
+    <property name="interceptorNames">
+      <list>
+        <value>methodCachePointCut</value>
+      </list>
+    </property>
+  </bean>
+  
+  <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+    <property name="configLocation" value="classpath:ehcache.xml"/>
+  </bean>
+
+  <bean id="methodCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+    <property name="cacheManager">
+      <ref local="cacheManager"/>
+    </property>
+    <property name="cacheName" value="no.java.portal.cache.METHOD_CACHE"/>
+  </bean>
+
+  <bean id="methodCacheInterceptor" class="no.java.portal.infrastructure.MethodCacheInterceptor">
+    <property name="cache">
+      <ref local="methodCache"/>
+    </property>
+  </bean>
+
+  <bean id="methodCachePointCut" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+    <property name="advice">
+      <ref local="methodCacheInterceptor"/>
+    </property>
+    <property name="patterns">
+      <list>
+        <value>.*\.get[A-Z].*</value>
+      </list>
+    </property>
+  </bean>
+
+</beans>

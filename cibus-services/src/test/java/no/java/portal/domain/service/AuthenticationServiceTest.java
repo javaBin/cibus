@@ -27,8 +27,8 @@ import static no.java.portal.domain.member.Member.MembershipNo.membershipNo;
  * @version $Id$
  */
 @RunWith(ConstrettoSpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:/spring.xml", "classpath:/test-cibus-services-spring.xml"})
-@Tags("dev")
+@ContextConfiguration(locations = {"classpath:/spring-services-test-module.xml"})
+@Tags("local")
 public class AuthenticationServiceTest {
                 
     @Test

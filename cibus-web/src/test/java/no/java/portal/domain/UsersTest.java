@@ -1,12 +1,5 @@
 package no.java.portal.domain;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Properties;
-import java.util.Set;
-
 import org.constretto.annotation.Tags;
 import org.constretto.test.ConstrettoSpringJUnit4ClassRunner;
 import org.junit.Ignore;
@@ -15,7 +8,14 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
-@Tags("dev")
+import java.util.HashSet;
+import java.util.List;
+import java.util.Properties;
+import java.util.Set;
+
+import static org.junit.Assert.assertEquals;
+
+@Tags("local")
 @RunWith(ConstrettoSpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath*:spring.xml"})
 public class UsersTest {

@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>no.java.cibus</groupId>
@@ -200,7 +200,7 @@
           <systemProperties>
             <systemProperty>
               <name>CONSTRETTO_TAGS</name>
-              <value>dev</value>
+              <value>${env}</value>
             </systemProperty>
           </systemProperties>
           <useTestClasspath>true</useTestClasspath>
@@ -208,5 +208,17 @@
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>dev</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <env>dev</env>
+      </properties>
+    </profile>
+  </profiles>
 
 </project>
