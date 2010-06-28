@@ -9,16 +9,22 @@ public class MemberCompany {
 
     private final int id;
     private final String name;
+    private final String address;
     private final int contactPersonId;
 
-    public MemberCompany(int id, String name, int contactPersonId) {
+    public MemberCompany(int id, String name, String address, int contactPersonId) {
         this.id = id;
         this.name = name;
+        this.address = address;
         this.contactPersonId = contactPersonId;
     }
 
     public int getId() {
         return id;
+    }
+
+    public String getAddress() {
+        return address;
     }
 
     public String getName() {

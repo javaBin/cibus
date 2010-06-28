@@ -8,33 +8,51 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 public class MemberPerson {
 
     private final int id;
-    private final Integer onpId;
-    private final String name;
-    private final boolean hidden;
+    private final String firstName;
+    private final String lastName;
+    private final String password;
+    private final String phoneNumber;
+    private final String address;
+    private final String email;
     private final MemberCompany memberCompany;
 
-    public MemberPerson(int id, Integer onpId, MemberCompany memberCompany, String name, boolean hidden) {
+    public MemberPerson(int id, String firstName, String lastName, String password, String phoneNumber, String address, String email, MemberCompany memberCompany) {
         this.id = id;
-        this.onpId = onpId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.email = email;
         this.memberCompany = memberCompany;
-        this.name = name;
-        this.hidden = hidden;
     }
 
     public int getId() {
         return id;
     }
 
-    public Integer getOnpId() {
-        return onpId;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getName() {
-        return name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public boolean isHidden() {
-        return hidden;
+    public String getPassword() {
+        return password;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public MemberCompany getMemberCompany() {

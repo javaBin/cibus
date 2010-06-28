@@ -2,7 +2,7 @@ package no.java.portal.domain.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -11,7 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author Thor Åge Eldby (thoraageeldby@gmail.com)
@@ -30,17 +29,34 @@ public class MemberPeopleImpl implements MemberPeople {
     }
 
     public List<MemberPerson> getCurrentMemberPeople() {
-        final Map<Integer, MemberCompany> companyMap = memberCompanies.getMemberCompanyMap();
-        String sql = "select mp.id, mp.onp_id, mp.member_company_id, mp.name, mp.hidden " +
-                "from jb_member_people mp join jb_memberships ms on (mp.id = ms.member_person_id or mp.member_company_id = ms.member_company_id) and ms.valid_to > ? " +
-                "where mp.hidden = false";
-        return template.query(sql, new ParameterizedRowMapper<MemberPerson>() {
-            public MemberPerson mapRow(ResultSet rs, int rowNum) throws SQLException {
-                int personId = rs.getInt("id");
-                MemberCompany memberCompany = companyMap.get(rs.getInt("member_company_id"));
-                return new MemberPerson(personId, (Integer) rs.getObject("onp_id"), memberCompany, rs.getString("name"), rs.getBoolean("hidden"));
+        return template.query(MemberPeopleRowMapper.MEMBERS_SQL, new MemberPeopleRowMapper(), new Date());
+    }
+
+    public MemberPerson findByNameAndPassword(String userName, String password) {
+        List<MemberPerson> list = template.query(MemberPeopleRowMapper.USER_NAME_PASSWORD_SQL, new MemberPeopleRowMapper(), userName, password);
+        if (list.size() > 1) {
+            throw new RuntimeException("Multiple users match " + list.size());
+        } else if (list.size() == 0) {
+            return null;
+        }
+        return list.get(0);
+    }
+
+    class MemberPeopleRowMapper implements RowMapper<MemberPerson> {
+        static final String BASE_SQL = "select mp.id, mp.first_name, mp.last_name, mp.password, mp.phone_number, mp.address, mp.email, mp.member_company_id " +
+                "from jb_member_people mp join jb_memberships ms on (mp.id = ms.member_person_id or mp.member_company_id = ms.member_company_id) ";
+        static final String MEMBERS_SQL = BASE_SQL + " and ms.valid_to > ? ";
+        static final String USER_NAME_PASSWORD_SQL = BASE_SQL + " where email = ? and password = ?";
+
+        public MemberPerson mapRow(ResultSet rs, int rowNum) throws SQLException {
+            int personId = rs.getInt("id");
+            Long memberCompanyId = (Long) rs.getObject("member_company_id");
+            MemberCompany memberCompany = null;
+            if (memberCompanyId != null) {
+                memberCompany = memberCompanies.find(memberCompanyId);
             }
-        }, new Date());
+            return new MemberPerson(personId, rs.getString("first_name"), rs.getString("last_name"), rs.getString("password"), rs.getString("phone_number"), rs.getString("address"), rs.getString("email"), memberCompany);
+        }
     }
 
 }

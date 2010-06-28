@@ -1,17 +1,18 @@
 package no.java.portal.infrastructure.security;
 
-import no.java.portal.domain.member.Member.*;
-import static no.java.portal.domain.member.Member.MailAddress.*;
-import no.java.portal.domain.service.*;
-import no.java.portal.domain.service.AuthenticationService.*;
-import org.slf4j.*;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.security.authentication.*;
-import org.springframework.security.core.*;
-import org.springframework.security.core.authority.*;
-import org.springframework.stereotype.*;
+import no.java.portal.domain.member.MemberPeople;
+import no.java.portal.domain.member.MemberPerson;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.GrantedAuthorityImpl;
+import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * @author <a href="mailto:trygvis@java.no">Trygve Laugst&oslash;l</a>
@@ -20,15 +21,13 @@ import java.util.*;
 @Component("cibusAuthenticationProvider")
 public class CibusAuthenticationProvider implements AuthenticationProvider {
 
-    private final Logger logger = LoggerFactory.getLogger(CibusAuthenticationProvider.class);
-
-    private final AuthenticationService authenticationService;
-
     private static Collection<GrantedAuthority> authorities = Collections.<GrantedAuthority>singleton(new GrantedAuthorityImpl("ROLE_USER"));
+    
+    private final MemberPeople memberPeople;
 
     @Autowired
-    public CibusAuthenticationProvider(AuthenticationService authenticationService) {
-        this.authenticationService = authenticationService;
+    public CibusAuthenticationProvider(MemberPeople memberPeople) {
+        this.memberPeople = memberPeople;
     }
 
     // -----------------------------------------------------------------------
@@ -38,14 +37,14 @@ public class CibusAuthenticationProvider implements AuthenticationProvider {
     public Authentication authenticate(final Authentication authentication) throws AuthenticationException {
         UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken) authentication;
 
+        String userName = (String) token.getPrincipal();
         String password = (String) authentication.getCredentials();
-        MailAddress mailAddress = mailAddress((String) token.getPrincipal());
 
-        CibusAuthentication cibusAuthentication = authenticationService.isAuthenticated(mailAddress, password);
-
-        if (cibusAuthentication.member.isSome()) {
-            token = new UsernamePasswordAuthenticationToken(mailAddress.toString(), password, authorities);
-            token.setDetails(cibusAuthentication.member.some());
+        MemberPerson person = memberPeople.findByNameAndPassword(userName, password);
+        
+        if (person != null) {
+            token = new UsernamePasswordAuthenticationToken(userName, password, authorities);
+            token.setDetails(person);
             return token;
         } else {
             return authentication;
@@ -55,4 +54,5 @@ public class CibusAuthenticationProvider implements AuthenticationProvider {
     public boolean supports(Class authentication) {
         return UsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication);
     }
+
 }

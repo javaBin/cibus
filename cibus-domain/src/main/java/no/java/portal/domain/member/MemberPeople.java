@@ -9,4 +9,6 @@ public interface MemberPeople {
 
     List<MemberPerson> getCurrentMemberPeople();
 
+    MemberPerson findByNameAndPassword(String userName, String password);
+    
 }

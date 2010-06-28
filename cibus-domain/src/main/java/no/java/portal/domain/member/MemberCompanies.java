@@ -8,5 +8,7 @@ import java.util.Map;
 public interface MemberCompanies {
 
     Map<Integer, MemberCompany> getMemberCompanyMap();
+
+    MemberCompany find(long id);
     
 }
