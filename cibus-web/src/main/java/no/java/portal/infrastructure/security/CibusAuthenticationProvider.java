@@ -40,7 +40,7 @@ public class CibusAuthenticationProvider implements AuthenticationProvider {
         String userName = (String) token.getPrincipal();
         String password = (String) authentication.getCredentials();
 
-        MemberPerson person = memberPeople.findByNameAndPassword(userName, password);
+        MemberPerson person = memberPeople.findByEMailAndPassword(userName, password);
         
         if (person != null) {
             token = new UsernamePasswordAuthenticationToken(userName, password, authorities);

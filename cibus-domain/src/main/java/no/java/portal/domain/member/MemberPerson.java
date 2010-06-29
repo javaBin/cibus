@@ -31,6 +31,10 @@ public class MemberPerson {
         return id;
     }
 
+    public String getDisplayName() {
+        return firstName.trim() + " " + lastName.trim();
+    }
+
     public String getFirstName() {
         return firstName;
     }

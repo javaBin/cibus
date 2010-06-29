@@ -32,8 +32,16 @@ public class MemberPeopleImpl implements MemberPeople {
         return template.query(MemberPeopleRowMapper.MEMBERS_SQL, new MemberPeopleRowMapper(), new Date());
     }
 
-    public MemberPerson findByNameAndPassword(String userName, String password) {
-        List<MemberPerson> list = template.query(MemberPeopleRowMapper.USER_NAME_PASSWORD_SQL, new MemberPeopleRowMapper(), userName, password);
+    public MemberPerson findByEMailAndPassword(String email, String password) {
+        MemberPerson memberPerson = findByEMail(email);
+        if (memberPerson == null || !password.equals(memberPerson.getPassword())) {
+            return null;
+        }
+        return memberPerson;
+    }
+
+    public MemberPerson findByEMail(String email) {
+        List<MemberPerson> list = template.query(MemberPeopleRowMapper.USER_NAME_SQL, new MemberPeopleRowMapper(), email);
         if (list.size() > 1) {
             throw new RuntimeException("Multiple users match " + list.size());
         } else if (list.size() == 0) {
@@ -42,11 +50,15 @@ public class MemberPeopleImpl implements MemberPeople {
         return list.get(0);
     }
 
+    public void save(MemberPerson memberPerson) {
+        System.out.println("Member person: " + memberPerson);
+    }
+
     class MemberPeopleRowMapper implements RowMapper<MemberPerson> {
         static final String BASE_SQL = "select mp.id, mp.first_name, mp.last_name, mp.password, mp.phone_number, mp.address, mp.email, mp.member_company_id " +
                 "from jb_member_people mp join jb_memberships ms on (mp.id = ms.member_person_id or mp.member_company_id = ms.member_company_id) ";
         static final String MEMBERS_SQL = BASE_SQL + " and ms.valid_to > ? ";
-        static final String USER_NAME_PASSWORD_SQL = BASE_SQL + " where email = ? and password = ?";
+        static final String USER_NAME_SQL = BASE_SQL + " where email = ?";
 
         public MemberPerson mapRow(ResultSet rs, int rowNum) throws SQLException {
             int personId = rs.getInt("id");

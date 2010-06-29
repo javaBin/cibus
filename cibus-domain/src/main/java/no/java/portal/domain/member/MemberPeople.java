@@ -9,6 +9,9 @@ public interface MemberPeople {
 
     List<MemberPerson> getCurrentMemberPeople();
 
-    MemberPerson findByNameAndPassword(String userName, String password);
-    
+    MemberPerson findByEMailAndPassword(String userName, String password);
+
+    MemberPerson findByEMail(String email);
+
+    void save(MemberPerson memberPerson);
 }

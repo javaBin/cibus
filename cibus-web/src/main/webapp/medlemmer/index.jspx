@@ -18,7 +18,8 @@
             <table>
                 <thead>
                 <tr>
-                    <th>Navn</th>
+                    <th>Fornavn</th>
+                    <th>Etternavn</th>
                     <th>Bedrift</th>
                     <th>Kontaktperson</th>
                 </tr>
@@ -26,7 +27,8 @@
                 <tbody>
                 <c:forEach var="member" items="${frontJspBean.memberPeople}">
                     <tr>
-                        <td>${member.name}</td>
+                        <td>${member.firstName}</td>
+                        <td>${member.lastName}</td>
                         <td>${member.memberCompany != null ? member.memberCompany.name : 'Personlig medlem'}</td>
                         <td>${member.contactPerson ? 'Ja' : ''}</td>
                     </tr>

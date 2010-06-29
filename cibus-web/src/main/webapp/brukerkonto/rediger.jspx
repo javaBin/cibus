@@ -14,19 +14,45 @@
 <div id="frontPage_news">
   <div class="wrapper">
     <div class="leftarea">
-      <h2>Brukerinnstillinger</h2>
       <c:set var="member" value="${userAccountJspBean.member}"/>
 
-      <ul>
-        <li>Navn: ${member.displayName}</li>
-        <li>Registrerte epostadresser:
-          <ul>
-            <c:forEach var="mailAddress" items="${member.mailAddressesAsCollection}">
-              <li>${mailAddress}</li>
-            </c:forEach>
-          </ul>
-        </li>
-      </ul>
+      <h2>Brukerinnstillinger</h2>
+
+      <form id="editUserForm" action="${pageContext.request.contextPath}/rest/memberPeople" method="post">
+        <table>
+          <tr>
+            <td><label for="firstName">Fornavn</label></td>
+            <td><input name="firstName" id="firstName" value="${member.firstName}"/></td>
+          </tr>
+          <tr>
+            <td><label for="lastName">Etternavn</label></td>
+            <td><input name="lastName" id="lastName" value="${member.lastName}"/></td>
+          </tr>
+          <tr>
+            <td><label for="email">E-postadresse</label></td>
+            <td><input name="email" id="email" value="${member.email}"/></td>
+          </tr>
+          <tr>
+            <td><label for="address">Adresse</label></td>
+            <td><input name="address" id="address" value="${member.address}"/></td>
+          </tr>
+          <tr>
+            <td><label for="phoneNumber">Telefonnummer</label></td>
+            <td><input name="phoneNumber" id="phoneNumber" value="${member.phoneNumber}"/></td>
+          </tr>
+          <tr>
+            <td colspan="2"><input type="submit" value="Lagre"/></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <p class="formError">
+              </p>
+              <p class="formSuccess">
+                Brukerinnstillinger oppdatert!
+              </p></td>
+          </tr>
+        </table>
+      </form>
 
     </div>
 

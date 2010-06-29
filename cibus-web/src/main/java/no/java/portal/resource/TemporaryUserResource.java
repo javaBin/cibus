@@ -1,24 +1,8 @@
 package no.java.portal.resource;
 
-import java.io.IOException;
-import java.text.MessageFormat;
-import java.util.Collections;
-import java.util.UUID;
-
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.Response;
-
 import net.sf.ehcache.Ehcache;
 import net.sf.ehcache.Element;
-import no.java.portal.domain.Categories;
-import no.java.portal.domain.SubscribedCategory;
-import no.java.portal.domain.User;
-import no.java.portal.domain.UserNotFoundException;
-import no.java.portal.domain.Users;
-
+import no.java.portal.domain.*;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -30,6 +14,16 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMailMessage;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
+
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.Response;
+import java.io.IOException;
+import java.text.MessageFormat;
+import java.util.Collections;
+import java.util.UUID;
 
 /**
  * @author <a href="mailto:thor.aage.eldby@arktekk.no">Thor &Aring;ge Eldby</a>
@@ -73,7 +67,7 @@ public class TemporaryUserResource {
     @POST
     public void registerUser(MultivaluedMap<String, String> selectedCategories) {
         User user = new User(null, null, Collections.<SubscribedCategory> emptyList(), null, UUID.randomUUID().toString());
-        User newUser = UserResource.createUserObject(user, categories, selectedCategories);
+        User newUser = MemberPersonResource.createUserObject(user, categories, selectedCategories);
         try {
             users.getUser(newUser.getUserName());
             WebApplicationException ex = new WebApplicationException(Response.Status.BAD_REQUEST);

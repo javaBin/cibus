@@ -2,6 +2,7 @@ package no.java.portal.domain.member;
 
 import org.constretto.annotation.Tags;
 import org.constretto.test.ConstrettoSpringJUnit4ClassRunner;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +34,21 @@ public class MemberPeopleTest {
 
     @Test
     public void memberCanBeAuthenticatedAtTheDatabase() {
-        assertNotNull(memberPeople.findByNameAndPassword("hit@dit.no", "pwd1"));
-        assertNull(memberPeople.findByNameAndPassword("blæ@dit.no", "pwd1"));
-        assertNull(memberPeople.findByNameAndPassword("hit@dit.no", "pwd2"));
+        assertNotNull(memberPeople.findByEMailAndPassword("hit@dit.no", "pwd1"));
+        assertNull(memberPeople.findByEMailAndPassword("blæ@dit.no", "pwd1"));
+        assertNull(memberPeople.findByEMailAndPassword("hit@dit.no", "pwd2"));
+    }
+
+    @Test
+    public void membersCanBeRetrievedByUserName() {
+        assertNotNull(memberPeople.findByEMail("hit@dit.no"));
+        assertNull(memberPeople.findByEMail("blæ@dit.no"));
+    }
+
+    @Test
+    @Ignore
+    public void memberCanBeUpdated() {
+        fail();
     }
 
 }
